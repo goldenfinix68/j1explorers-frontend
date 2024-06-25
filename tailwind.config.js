@@ -9,6 +9,9 @@ module.exports = {
         darkgreen: "#055424",
         darkyellow: "#c56600",
       },
+      fontFamily: {
+        myriad: ["MyriadPro", "sans-serif"],
+      },
     },
   },
   plugins: [],
