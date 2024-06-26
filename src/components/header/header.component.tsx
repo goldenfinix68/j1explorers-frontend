@@ -13,9 +13,12 @@ export const HeaderComponent: React.FC = () => {
   const { period, route }: Tour = useSelector(tourSelector);
   return (
     <div className="mt-5 mb-[19px]">
-      <div className="flex justify-between">
+      <div className="flex justify-between items-center mb-[10px]">
         <img src="/logo.png" className="logo" />
-        <div className="text-primary text-[17.58px] mr-[30px]">
+        <div
+          className="text-primary text-[17.58px] mr-[30px]"
+          style={{ lineHeight: "1.2" }}
+        >
           <div>{firstName}</div>
           <div>{lastName}</div>
         </div>
