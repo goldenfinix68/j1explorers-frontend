@@ -30,6 +30,7 @@
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:css": "tailwindcss -i ./src/tailwind.css -o ./src/global.css --watch",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
