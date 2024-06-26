@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { NavButton } from "../../components/nav.button/nav.button";
+import { NavButtonComponent } from "../../components/nav.button/nav.button";
 import HeaderComponent from "../../components/header";
 
 export const HomePage: React.FC = () => {
@@ -22,7 +22,7 @@ export const HomePage: React.FC = () => {
       <HeaderComponent />
       <nav className="flex flex-col mx-2">
         {menu.map(({ path, title }) => (
-          <NavButton
+          <NavButtonComponent
             key={title}
             onClick={() => navigate(path)}
             title={title}
