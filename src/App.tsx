@@ -3,9 +3,9 @@ import "./App.css";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { Direction } from "./type";
 import HomePage from "./pages/home";
-import TourDetailPage from "./pages/tour.detail/tour.detail";
+import TourDetailPage from "./pages/tour.detail";
 import { AnimatePresence } from "framer-motion";
-import SchedulePage from "./pages/schedule/schedule.page";
+import SchedulePage from "./pages/schedule";
 import PageTransition from "./pages/page.transition";
 
 const App: React.FC = () => {
