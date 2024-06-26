@@ -5,11 +5,11 @@
 /.pnp
 .pnp.js
 
-#TailwindCSS
-/src/global.css
-
 # testing
 /coverage
+
+# tailwindcss
+/src/index.css
 
 # production
 /build
