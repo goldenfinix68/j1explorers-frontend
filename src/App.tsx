@@ -1,46 +1,47 @@
-import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
+import React from "react";
 import "./App.css";
-import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { Direction } from "./type";
-import { HeaderComponent } from "./components/header/header.component";
-import HomePage from "./pages/home/home.page";
+import HomePage from "./pages/home";
 import TourDetailPage from "./pages/tour.detail/tour.detail";
 import { AnimatePresence } from "framer-motion";
+import SchedulePage from "./pages/schedule/schedule.page";
+import PageTransition from "./pages/page.transition";
 
-function App() {
+const App: React.FC = () => {
   const location = useLocation();
-  const [direction, setDirection] = useState<Direction>(1); // 1 for forward, -1 for backward
+  const direction: Direction = location.pathname === "/" ? 1 : -1;
 
   return (
-    <div>
-      <HeaderComponent />
-      <AnimatePresence mode="wait" custom={direction}>
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<HomePage setDirection={setDirection} />} />
-          <Route
-            path="/page1"
-            element={
-              <TourDetailPage
-                direction={direction}
-                setDirection={setDirection}
-              />
-            }
-          />
-          <Route
-            path="/page2"
-            element={
-              <TourDetailPage
-                direction={direction}
-                setDirection={setDirection}
-              />
-            }
-          />
-          {/* Add other routes similarly */}
-        </Routes>
-      </AnimatePresence>
-    </div>
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route
+          path="/"
+          element={
+            <PageTransition direction={direction}>
+              <HomePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/page1"
+          element={
+            <PageTransition direction={-1}>
+              <TourDetailPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/page3"
+          element={
+            <PageTransition direction={-1}>
+              <SchedulePage />
+            </PageTransition>
+          }
+        />
+      </Routes>
+    </AnimatePresence>
   );
-}
-
+};
+//<Route path="*" element={<Navigate to="/" />} />
 export default App;
