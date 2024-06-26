@@ -3,9 +3,8 @@ import { User } from "../../store/user/user.type";
 import { useSelector } from "react-redux";
 import { userSelector } from "../../store/user/user.selector";
 import "./header.component.css";
-import "../../global.css";
 import { Tour } from "../../store/tour/tour.type";
-import { periodSelector, tourSelector } from "../../store/tour/tour.selector";
+import { tourSelector } from "../../store/tour/tour.selector";
 import { formatDate } from "../../utils/processDate";
 
 export const HeaderComponent: React.FC = () => {
@@ -14,7 +13,7 @@ export const HeaderComponent: React.FC = () => {
   return (
     <div className="mt-5 mb-[19px]">
       <div className="flex justify-between items-center mb-[10px]">
-        <img src="/logo.png" className="logo" />
+        <img src="/assets/images/logo.png" className="logo" />
         <div
           className="text-primary text-[17.58px] mr-[30px]"
           style={{ lineHeight: "1.2" }}

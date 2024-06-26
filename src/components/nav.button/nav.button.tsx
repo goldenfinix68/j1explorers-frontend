@@ -7,7 +7,7 @@ interface NavButtonProps {
   backgroundColor: string;
   borderColor: string;
 }
-export const NavButton: React.FC<NavButtonProps> = ({
+export const NavButtonComponent: React.FC<NavButtonProps> = ({
   onClick,
   title,
   backgroundColor,
@@ -19,7 +19,7 @@ export const NavButton: React.FC<NavButtonProps> = ({
       className={`w-full flex justify-between items-center ${backgroundColor} ${borderColor} text-white text-[21.6px] border-[3px] rounded-xl h-[71px] pl-[11px] pr-[7px] mb-[3px]`}
     >
       {title}
-      <img src="/arrow.png" />
+      <img src="/assets/images/arrow.png" />
     </button>
   );
 };
