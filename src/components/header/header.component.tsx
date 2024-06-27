@@ -11,9 +11,12 @@ export const HeaderComponent: React.FC = () => {
   const { firstName, lastName }: User = useSelector(userSelector);
   const { period, route }: Tour = useSelector(tourSelector);
   return (
-    <div className="mt-5 mb-[19px]">
-      <div className="flex justify-between items-center mb-[10px]">
-        <img src="/assets/images/logo.png" className="logo" />
+    <div className="mt-5 mb-2">
+      <div className="flex justify-between items-center mb-2">
+        <img
+          src={`${process.env.PUBLIC_URL}/assets/images/logo.png`}
+          className="logo"
+        />
         <div
           className="text-primary text-[17.58px] mr-[30px]"
           style={{ lineHeight: "1.2" }}
