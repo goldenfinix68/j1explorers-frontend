@@ -7,6 +7,7 @@ import TourDetailPage from "./pages/tour.detail";
 import { AnimatePresence } from "framer-motion";
 import SchedulePage from "./pages/schedule";
 import PageTransition from "./pages/page.transition";
+import ProfilePage from "./pages/profile";
 
 const App: React.FC = () => {
   const location = useLocation();
@@ -24,7 +25,7 @@ const App: React.FC = () => {
           }
         />
         <Route
-          path="/page1"
+          path="/tour-detail"
           element={
             <PageTransition direction={-1}>
               <TourDetailPage />
@@ -32,7 +33,15 @@ const App: React.FC = () => {
           }
         />
         <Route
-          path="/page3"
+          path="/profile"
+          element={
+            <PageTransition direction={-1}>
+              <ProfilePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/schedule"
           element={
             <PageTransition direction={-1}>
               <SchedulePage />

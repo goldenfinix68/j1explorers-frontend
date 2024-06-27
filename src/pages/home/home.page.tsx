@@ -7,14 +7,14 @@ export const HomePage: React.FC = () => {
   const navigate = useNavigate();
 
   const menu = [
-    { path: "/page1", title: "Your Tour Details" },
-    { path: "/page2", title: "Profile/Pack Members" },
-    { path: "/page3", title: "Schedule/Reservations" },
-    { path: "/page4", title: "Recommended Apps" },
-    { path: "/page5", title: "Contact/Links" },
-    { path: "/page6", title: "FAQs" },
-    { path: "/page7", title: "Terms & Conditions" },
-    { path: "/page8", title: "J1E Website/Flyer" },
+    { path: "/tour-detail", title: "Your Tour Details" },
+    { path: "/profile", title: "Profile/Pack Members" },
+    { path: "/schedule", title: "Schedule/Reservations" },
+    { path: "/recommended", title: "Recommended Apps" },
+    { path: "/contact", title: "Contact/Links" },
+    { path: "/faq", title: "FAQs" },
+    { path: "/terms", title: "Terms & Conditions" },
+    { path: "/flyer", title: "J1E Website/Flyer" },
   ];
 
   return (
