@@ -10,7 +10,7 @@ module.exports = {
         darkyellow: "#c56600",
       },
       fontFamily: {
-        myriad: ["MyriadPro", "sans-serif"],
+        myriad: ["Myriad Pro", "serif"],
       },
     },
   },
