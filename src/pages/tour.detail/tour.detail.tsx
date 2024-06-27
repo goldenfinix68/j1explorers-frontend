@@ -5,9 +5,9 @@ export const TourDetailPage: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="ml-4 text-[11.67px] font-bold">
+    <div className="ml-4 text-[16.2px] font-bold">
       <div>
-        <div className="text-center text-[18px] font-bold text-secondary">
+        <div className="text-center text-[25px] font-bold text-secondary">
           Booking Details
         </div>
         <div className="flex">
@@ -28,7 +28,7 @@ export const TourDetailPage: React.FC = () => {
       </div>
       <br />
       <div>
-        <div className="text-center text-[18px] font-bold text-secondary">
+        <div className="text-center text-[25px] font-bold text-secondary">
           Grand Canyon/Hoover Dam
         </div>
         <div className="flex text-secondary">
@@ -49,11 +49,11 @@ export const TourDetailPage: React.FC = () => {
       </div>
       <br />
       <div>
-        <div className="text-center text-[18px] font-bold text-secondary">
+        <div className="text-center text-[25px] font-bold text-secondary">
           Additions
         </div>
         <div>
-          <div className="text-center text-[13.74px] font-bold text-secondary">
+          <div className="text-center text-[19.08px] font-bold text-secondary">
             Tours
           </div>
           <div className="flex">
@@ -77,8 +77,9 @@ export const TourDetailPage: React.FC = () => {
             <div className="text-darkyellow">$1000</div>
           </div>
         </div>
+        <br />
         <div>
-          <div className="text-center text-[13.74px] font-bold text-secondary">
+          <div className="text-center text-[19.08px] font-bold text-secondary">
             Days
           </div>
           <div className="flex">
