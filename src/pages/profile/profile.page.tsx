@@ -1,6 +1,7 @@
 import React from "react";
 import RecordComponent from "../../components/record.component";
 import { RecordDetail } from "../../type";
+import DividerComponent from "../../components/divider";
 
 export const ProfilePage: React.FC = () => {
   const profile: RecordDetail[] = [
@@ -23,7 +24,8 @@ export const ProfilePage: React.FC = () => {
     { title: "Member 4", description: "John Sanderson" },
   ];
   return (
-    <div className="text-[19.33px] text-center font-bold mx-3 pl-8">
+    <div className="mt-[18px] text-[19.33px] text-center font-bold mx-3 pl-8">
+      <DividerComponent />
       <div>
         <div className="text-[29px] text-secondary">Your profile</div>
         {profile.map(({ title, description }) => (
@@ -36,6 +38,7 @@ export const ProfilePage: React.FC = () => {
           />
         ))}
       </div>
+      <DividerComponent />
       <div>
         <div className="text-[29px] text-secondary">Pack members</div>
         {packMembers.map(({ title, description }) => (
