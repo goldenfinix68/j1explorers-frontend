@@ -1,101 +1,103 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { RecordDetail } from "../../type";
+import RecordComponent from "../../components/record.component";
+import DividerComponent from "../../components/divider";
 
 export const TourDetailPage: React.FC = () => {
   const navigate = useNavigate();
-
+  const bookingDetails: RecordDetail[] = [
+    { title: "Date tour booked", description: "2 February 20xx" },
+    { title: "Total pack members", description: 3 },
+    { title: "Your tour price", description: "$1000" },
+  ];
+  const tourDetails: RecordDetail[] = [
+    {
+      title: "Tour start",
+      description: "Los Angeles",
+      description_style: "text-primary",
+    },
+    {
+      title: "Tour end",
+      description: "New York City",
+      description_style: "text-secondary",
+    },
+    {
+      title: "Main tour price",
+      description: "$1000",
+      description_style: "text-darkyellow",
+    },
+  ];
+  const additionalTour: RecordDetail[] = [
+    { title: "Additional tour name", description: "Hoover Dam/Grand Canyon" },
+    { title: "Additional tour date", description: "2 February 20xx" },
+    { title: "Date additional tour booked", description: "2 February 20xx" },
+    { title: "Additional tour price", description: "$1000" },
+  ];
+  const additionalDays: RecordDetail[] = [
+    { title: "Additional days date", description: "2 February 20xx" },
+    { title: "Date additional day(s) booked", description: "2 February 20xx" },
+    { title: "Additional days price", description: "$1000" },
+  ];
   return (
     <div className="ml-4 text-[16.2px] font-bold">
-      <div>
-        <div className="text-center text-[25px] font-bold text-secondary">
+      <DividerComponent />
+      <div className="mt-6">
+        <div className="text-center text-[25px] text-secondary">
           Booking Details
         </div>
-        <div className="flex">
-          <div className="text-secondary">Date tour booked:</div>
-          &nbsp;
-          <div className="text-darkyellow">2 February 20xx</div>
-        </div>
-        <div className="flex">
-          <div className="text-secondary">Total pack members:</div>
-          &nbsp;
-          <div className="text-darkyellow">3</div>
-        </div>
-        <div className="flex">
-          <div className="text-secondary">Your tour price:</div>
-          &nbsp;
-          <div className="text-darkyellow">$1000</div>
-        </div>
+        {bookingDetails.map(({ title, description }) => (
+          <RecordComponent
+            title={title}
+            title_style="text-secondary"
+            description={description}
+            description_style="text-darkyellow"
+          />
+        ))}
       </div>
       <br />
       <div>
-        <div className="text-center text-[25px] font-bold text-secondary">
+        <div className="text-center text-[25px]  text-secondary">
           Grand Canyon/Hoover Dam
         </div>
-        <div className="flex text-secondary">
-          <div className="text-secondary">Tour start:</div>
-          &nbsp;
-          <div className="text-primary">Los Angeles</div>
-        </div>
-        <div className="flex">
-          <div className="text-secondary">Tour end:</div>
-          &nbsp;
-          <div className="text-secondary">New York City</div>
-        </div>
-        <div className="flex">
-          <div className="text-secondary">Main tour price:</div>
-          &nbsp;
-          <div className="text-darkyellow">$1000</div>
-        </div>
+        {tourDetails.map(
+          ({ title, description, description_style }: RecordDetail) => (
+            <RecordComponent
+              title={title}
+              title_style="text-secondary"
+              description={description}
+              description_style={description_style}
+            />
+          )
+        )}
       </div>
       <br />
       <div>
-        <div className="text-center text-[25px] font-bold text-secondary">
-          Additions
-        </div>
+        <div className="text-center text-[25px]  text-secondary">Additions</div>
         <div>
-          <div className="text-center text-[19.08px] font-bold text-secondary">
+          <div className="text-center text-[19.08px]  text-secondary">
             Tours
           </div>
-          <div className="flex">
-            <div className="text-secondary">Additional tour name:</div>
-            &nbsp;
-            <div className="text-darkyellow">Hoover Dam/Grand Canyon</div>
-          </div>
-          <div className="flex">
-            <div className="text-secondary">Additional tour date:</div>
-            &nbsp;
-            <div className="text-darkyellow">2 February 20xx</div>
-          </div>
-          <div className="flex">
-            <div className="text-secondary">Date additional tour booked:</div>
-            &nbsp;
-            <div className="text-darkyellow">2 February 20xx</div>
-          </div>
-          <div className="flex">
-            <div className="text-secondary">Additional tour price:</div>
-            &nbsp;
-            <div className="text-darkyellow">$1000</div>
-          </div>
+          {additionalTour.map(({ title, description }) => (
+            <RecordComponent
+              title={title}
+              title_style="text-secondary"
+              description={description}
+              description_style="text-darkyellow"
+            />
+          ))}
         </div>
         <br />
         <div>
-          <div className="text-center text-[19.08px] font-bold text-secondary">
-            Days
-          </div>
-          <div className="flex">
-            <div className="text-secondary">Additional days date:</div>
-            &nbsp;
-            <div className="text-darkyellow">2 February 20xx</div>
-          </div>
-          <div className="flex">
-            <div className="text-secondary">Date additional day(s) booked:</div>
-            <div className="text-darkyellow">2 February 20xx</div>
-          </div>
-          <div className="flex">
-            <div className="text-secondary">Additional days price:</div>
-            &nbsp;
-            <div className="text-darkyellow">$1000</div>
-          </div>
+          <div className="text-center text-[19.08px]  text-secondary">Days</div>
+          {additionalDays.map(({ title, description }) => (
+            <RecordComponent
+              title={title}
+              title_style="text-secondary"
+              description={description}
+              description_style="text-darkyellow"
+            />
+          ))}
         </div>
       </div>
       <br />
