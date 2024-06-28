@@ -57,7 +57,7 @@ export const SchedulePage: React.FC = () => {
     <>
       <HeaderComponent>
         <Link to="/">
-          <img src={`${process.env.PUBLIC_URL}/assets/images/left.png`} />
+          <img src={`${process.env.PUBLIC_URL}/assets/images/left_green.png`} />
         </Link>
         <div className="flex flex-col text-secondary text-[29px] text-center font-bold leading-[24.16px]">
           <span>Schedule/</span>

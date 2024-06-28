@@ -48,7 +48,7 @@ export const TourDetailPage: React.FC = () => {
     <div className="mx-3 text-[16.2px] font-bold">
       <HeaderComponent>
         <Link to="/">
-          <img src={`${process.env.PUBLIC_URL}/assets/images/left.png`} />
+          <img src={`${process.env.PUBLIC_URL}/assets/images/left_green.png`} />
         </Link>
         <div className="flex flex-col text-secondary text-[29px] text-center leading-[24.16px]">
           <span>Your Tour</span>
