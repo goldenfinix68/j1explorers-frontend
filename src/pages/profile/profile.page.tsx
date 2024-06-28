@@ -35,10 +35,13 @@ export const ProfilePage: React.FC = () => {
             description={description}
             title_style="text-secondary"
             description_style="text-darkyellow"
+            className="flex leading-tight"
           />
         ))}
       </div>
+      <br />
       <DividerComponent />
+      <br />
       <div>
         <div className="text-[29px] text-secondary">Pack members</div>
         {packMembers.map(({ title, description }) => (
