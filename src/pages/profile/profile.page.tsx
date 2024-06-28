@@ -31,7 +31,7 @@ export const ProfilePage: React.FC = () => {
         <Link to="/">
           <img src={`${process.env.PUBLIC_URL}/assets/images/left.png`} />
         </Link>
-        <div className="flex flex-col text-secondary text-[29px] text-center leading-[24.16px]">
+        <div className="flex flex-col text-secondary text-[29px] font-bold text-center leading-[24.16px]">
           <span>Profile/</span>
           <span>Pack members</span>
         </div>
