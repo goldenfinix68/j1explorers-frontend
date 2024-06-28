@@ -20,14 +20,13 @@ export const HomePage: React.FC = () => {
   return (
     <>
       <HeaderComponent />
-      <nav className="flex flex-col mx-2">
+      <nav className="flex flex-col mx-2 mt-[10px] font-light">
         {menu.map(({ path, title }) => (
           <NavButtonComponent
             key={title}
             onClick={() => navigate(path)}
             title={title}
-            backgroundColor="bg-primary"
-            borderColor="border-darkgreen"
+            className="bg-primary border-darkgreen text-[30px]"
           />
         ))}
       </nav>
