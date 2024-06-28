@@ -2,6 +2,8 @@ import React from "react";
 import RecordComponent from "../../components/record.component";
 import { RecordDetail } from "../../type";
 import DividerComponent from "../../components/divider";
+import HeaderComponent from "../../components/header";
+import { Link } from "react-router-dom";
 
 export const ProfilePage: React.FC = () => {
   const profile: RecordDetail[] = [
@@ -24,36 +26,47 @@ export const ProfilePage: React.FC = () => {
     { title: "Member 4", description: "John Sanderson" },
   ];
   return (
-    <div className="mt-[18px] text-[19.33px] text-center font-bold mx-3 pl-8">
-      <DividerComponent />
-      <div>
-        <div className="text-[29px] text-secondary">Your profile</div>
-        {profile.map(({ title, description }) => (
-          <RecordComponent
-            key={title}
-            title={title}
-            description={description}
-            title_style="text-secondary"
-            description_style="text-darkyellow"
-            className="flex leading-tight"
-          />
-        ))}
+    <>
+      <HeaderComponent>
+        <Link to="/">
+          <img src={`${process.env.PUBLIC_URL}/assets/images/left.png`} />
+        </Link>
+        <div className="flex flex-col text-secondary text-[29px] text-center leading-[24.16px]">
+          <span>Profile/</span>
+          <span>Pack members</span>
+        </div>
+      </HeaderComponent>
+      <div className="mt-[18px] text-[19.33px] text-center font-bold mx-3">
+        <DividerComponent />
+        <div className="pl-8 mb-4">
+          <div className="text-[29px] text-secondary">Your profile</div>
+          {profile.map(({ title, description }) => (
+            <RecordComponent
+              key={title}
+              title={title}
+              description={description}
+              title_style="text-secondary"
+              description_style="text-darkyellow"
+              className="flex leading-tight"
+            />
+          ))}
+        </div>
+        <DividerComponent />
+        <div className="pl-8">
+          <div className="text-[29px] text-secondary leading-loose">
+            Pack members
+          </div>
+          {packMembers.map(({ title, description }) => (
+            <RecordComponent
+              key={title}
+              title={title}
+              description={description}
+              title_style="text-secondary"
+              description_style="text-darkyellow"
+            />
+          ))}
+        </div>
       </div>
-      <br />
-      <DividerComponent />
-      <br />
-      <div>
-        <div className="text-[29px] text-secondary">Pack members</div>
-        {packMembers.map(({ title, description }) => (
-          <RecordComponent
-            key={title}
-            title={title}
-            description={description}
-            title_style="text-secondary"
-            description_style="text-darkyellow"
-          />
-        ))}
-      </div>
-    </div>
+    </>
   );
 };
