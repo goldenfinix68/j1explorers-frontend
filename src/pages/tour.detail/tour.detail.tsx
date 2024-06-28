@@ -29,7 +29,11 @@ export const TourDetailPage: React.FC = () => {
     },
   ];
   const additionalTour: RecordDetail[] = [
-    { title: "Additional tour name", description: "Hoover Dam/Grand Canyon" },
+    {
+      title: "Additional tour name",
+      description: "Hoover Dam/Grand Canyon",
+      description_style: "tracking-tight text-darkyellow",
+    },
     { title: "Additional tour date", description: "2 February 20xx" },
     { title: "Date additional tour booked", description: "2 February 20xx" },
     { title: "Additional tour price", description: "$1000" },
@@ -78,14 +82,16 @@ export const TourDetailPage: React.FC = () => {
           <div className="text-center text-[19.08px]  text-secondary">
             Tours
           </div>
-          {additionalTour.map(({ title, description }) => (
-            <RecordComponent
-              title={title}
-              title_style="text-secondary"
-              description={description}
-              description_style="text-darkyellow"
-            />
-          ))}
+          {additionalTour.map(
+            ({ title, description, description_style = "text-darkyellow" }) => (
+              <RecordComponent
+                title={title}
+                title_style="text-secondary"
+                description={description}
+                description_style={description_style}
+              />
+            )
+          )}
         </div>
         <br />
         <div>
