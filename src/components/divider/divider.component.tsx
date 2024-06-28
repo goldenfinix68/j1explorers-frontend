@@ -1,4 +1,9 @@
 import React from "react";
-export const DividerComponent: React.FC = () => {
-  return <div className="border-primary border"></div>;
+interface DividerComponentProps {
+  className?: string;
+}
+export const DividerComponent: React.FC<DividerComponentProps> = ({
+  className,
+}) => {
+  return <div className={`${className} border`}></div>;
 };
