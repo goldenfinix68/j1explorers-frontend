@@ -1,6 +1,7 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import NavButtonComponent from "../../components/nav.button";
+import HeaderComponent from "../../components/header";
 
 export const SchedulePage: React.FC = () => {
   const navigate = useNavigate();
@@ -53,16 +54,25 @@ export const SchedulePage: React.FC = () => {
     },
   ];
   return (
-    <div className="mx-[13px] text-[11.67px] font-bold">
-      {scheduleArray.map(({ title, backgroundColor, borderColor }) => (
-        <NavButtonComponent
-          title={title}
-          backgroundColor={backgroundColor}
-          borderColor={borderColor}
-          onClick={() => {}}
-        />
-      ))}
-      <button onClick={() => navigate("/")}>Back to Main</button>
-    </div>
+    <>
+      <HeaderComponent>
+        <Link to="/">
+          <img src={`${process.env.PUBLIC_URL}/assets/images/left.png`} />
+        </Link>
+        <div className="flex flex-col text-secondary text-[29px] text-center font-bold leading-[24.16px]">
+          <span>Schedule/</span>
+          <span>Reservations</span>
+        </div>
+      </HeaderComponent>
+      <div className="mx-3 text-[11.67px] mt-[18px] font-light">
+        {scheduleArray.map(({ title, backgroundColor, borderColor }) => (
+          <NavButtonComponent
+            title={title}
+            className={`${backgroundColor} ${borderColor} text-[23.71px]`}
+            onClick={() => {}}
+          />
+        ))}
+      </div>
+    </>
   );
 };
