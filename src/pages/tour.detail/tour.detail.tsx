@@ -1,8 +1,9 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { RecordDetail } from "../../type";
 import RecordComponent from "../../components/record.component";
 import DividerComponent from "../../components/divider";
+import HeaderComponent from "../../components/header";
 
 export const TourDetailPage: React.FC = () => {
   const navigate = useNavigate();
@@ -44,7 +45,16 @@ export const TourDetailPage: React.FC = () => {
     { title: "Additional days price", description: "$1000" },
   ];
   return (
-    <div className="ml-4 text-[16.2px] font-bold">
+    <div className="mx-3 text-[16.2px] font-bold">
+      <HeaderComponent>
+        <Link to="/">
+          <img src={`${process.env.PUBLIC_URL}/assets/images/left.png`} />
+        </Link>
+        <div className="flex flex-col text-secondary text-[29px] text-center leading-[24.16px]">
+          <span>Your Tour</span>
+          <span>Details</span>
+        </div>
+      </HeaderComponent>
       <DividerComponent />
       <div className="mt-6">
         <div className="text-center text-[25px] text-secondary">
@@ -111,7 +121,6 @@ export const TourDetailPage: React.FC = () => {
         <div className="text-secondary">Total Paid</div>
         <div className="text-darkyellow">$1000</div>
       </div>
-      <button onClick={() => navigate("/")}>Back to Main</button>
     </div>
   );
 };
