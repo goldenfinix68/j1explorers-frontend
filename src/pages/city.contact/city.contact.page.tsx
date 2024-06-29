@@ -35,7 +35,7 @@ export const CityContactPage: React.FC = () => {
           <NavButtonComponent
             title={`${CITIES[city]} ${CONTACTS[contact]}`}
             className={`text-[23.71px] ${COLORS[city]} mt-[45px]`}
-            onClick={() => navigate(`/contact/${city}/coordinator`)}
+            onClick={() => navigate(contact)}
           />
         ))}
       </div>
