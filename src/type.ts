@@ -8,3 +8,7 @@ export interface RecordDetail {
   gap?: string;
   className?: string;
 }
+
+export interface CityParams extends Record<string, string> {
+  city: string;
+}
