@@ -14,15 +14,15 @@ export const ContactDetailComponent: React.FC<ContactDetailParams> = ({
   contentClassName,
 }) => {
   return (
-    <>
+    <div className="mb-2">
       <div className={`text-[29.625px] mb-1 ${titleClassName} mt-4`}>
         {title}
       </div>
       {content.map((val) => (
-        <div key={val} className={`text-[24.708px] ${contentClassName} mb-2`}>
+        <div key={val} className={`text-[24.708px] ${contentClassName}`}>
           {val}
         </div>
       ))}
-    </>
+    </div>
   );
 };
