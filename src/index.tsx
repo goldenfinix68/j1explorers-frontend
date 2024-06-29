@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <Provider store={store}>
-    <Router>
+    <Router basename="j1explorers-frontend">
       <App />
     </Router>
   </Provider>
