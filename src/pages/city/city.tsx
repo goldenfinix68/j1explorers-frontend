@@ -2,18 +2,24 @@ import React from "react";
 import { Link, useNavigate, useMatch, useParams } from "react-router-dom";
 import NavButtonComponent from "../../components/nav.button";
 import HeaderComponent from "../../components/header";
-import { CITIES, COLORS, CONTACTS } from "../../consts";
+import {
+  CITIES,
+  BUTTON_COLORS,
+  CITY_CONTACTS,
+  CONTACT_TYPES,
+} from "../../consts";
 import { isValidCity } from "../../utils/validator";
 import { CityParams } from "../../type";
 
 export const CityPage: React.FC = () => {
   const navigate = useNavigate();
   const { city } = useParams<CityParams>();
-  const contactURL = ["hotel", "fly-away", "hop-on-off", "coordinator"];
 
   if (!isValidCity(city)) {
     return <div>Invalid city</div>;
   }
+
+  const contactURL = CITY_CONTACTS[city];
 
   return (
     <>
@@ -29,8 +35,12 @@ export const CityPage: React.FC = () => {
       <div className="mx-3 text-[29.16px] mt-[18px] font-light">
         {contactURL.map((contact) => (
           <NavButtonComponent
-            title={`${CITIES[city]} ${CONTACTS[contact]}`}
-            className={`text-[23.71px] ${COLORS[city]} mt-[45px]`}
+            title={
+              contact === "grand-canyon-hoover-dam"
+                ? CONTACT_TYPES[contact]
+                : `${CITIES[city]} ${CONTACT_TYPES[contact]}`
+            }
+            className={`text-[23.71px] ${BUTTON_COLORS[city]} mt-[45px] mb-1`}
             onClick={() => navigate(contact)}
           />
         ))}
