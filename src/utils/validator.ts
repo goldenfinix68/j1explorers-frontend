@@ -1,4 +1,4 @@
-import { CITIES, CONTACTS } from "../consts";
+import { CITIES, CONTACT_TYPES } from "../consts";
 
 export const isValidCity = (
   city: string | undefined
@@ -8,6 +8,6 @@ export const isValidCity = (
 
 export const isValidContact = (
   contact: string | undefined
-): contact is keyof typeof CONTACTS => {
-  return contact !== undefined && contact in CONTACTS;
+): contact is keyof typeof CONTACT_TYPES => {
+  return contact !== undefined && contact in CONTACT_TYPES;
 };
