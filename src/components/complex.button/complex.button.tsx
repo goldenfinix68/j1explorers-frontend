@@ -1,4 +1,5 @@
 import React from "react";
+import DividerComponent from "../divider";
 
 interface ComplexButtonProps {
   left_title: string[];
@@ -26,7 +27,7 @@ export const ComplexButtonComponent: React.FC<ComplexButtonProps> = ({
             <span>{val}</span>
           ))}
         </div>
-        <span className="text-[27.375px] leading-none">|</span>
+        <DividerComponent className="border-white h-7" />
       </div>
       <div
         className={`${right_className} flex justify-between items-center grow pl-[11px] pr-2 border-[3px] border-l-0 rounded-r-xl`}
