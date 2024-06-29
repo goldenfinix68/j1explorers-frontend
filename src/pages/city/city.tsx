@@ -4,15 +4,11 @@ import NavButtonComponent from "../../components/nav.button";
 import HeaderComponent from "../../components/header";
 import { CITIES, COLORS, CONTACTS } from "../../consts";
 import { isValidCity } from "../../utils/validator";
+import { CityParams } from "../../type";
 
-interface CityContactParams extends Record<string, string> {
-  city: string;
-}
-
-export const CityContactPage: React.FC = () => {
+export const CityPage: React.FC = () => {
   const navigate = useNavigate();
-  const { city } = useParams<CityContactParams>();
-  console.log(city, CITIES);
+  const { city } = useParams<CityParams>();
   const contactURL = ["hotel", "fly-away", "hop-on-off", "coordinator"];
 
   if (!isValidCity(city)) {
