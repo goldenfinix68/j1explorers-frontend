@@ -2,30 +2,12 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import NavButtonComponent from "../../components/nav.button";
 import HeaderComponent from "../../components/header";
+import { CITIES, COLORS } from "../../consts";
 
 export const ContactPage: React.FC = () => {
   const navigate = useNavigate();
+  const cities = ["la", "vegas", "nyc"];
 
-  const contactArray = [
-    {
-      title: "LA Contacts/Links",
-      backgroundColor: "bg-primary",
-      borderColor: "border-darkgreen",
-      path: "/contact/la",
-    },
-    {
-      title: "Vegas Contacts/Links",
-      backgroundColor: "bg-darkyellow",
-      borderColor: "border-secondary",
-      path: "/contact/vegas",
-    },
-    {
-      title: "NYC Contacts/Links",
-      backgroundColor: "bg-secondary",
-      borderColor: "border-darkyellow",
-      path: "/contact/nyc",
-    },
-  ];
   return (
     <>
       <HeaderComponent>
@@ -38,11 +20,11 @@ export const ContactPage: React.FC = () => {
         </div>
       </HeaderComponent>
       <div className="mx-3 text-[11.67px] mt-[18px] font-light">
-        {contactArray.map(({ title, backgroundColor, borderColor, path }) => (
+        {cities.map((city) => (
           <NavButtonComponent
-            title={title}
-            className={`${backgroundColor} ${borderColor} text-[23.71px]`}
-            onClick={() => navigate(path)}
+            title={`${CITIES[city]} Contacts/Links`}
+            className={`${COLORS[city]} text-[23.71px] mt-10`}
+            onClick={() => navigate(`contact/${city}`)}
           />
         ))}
       </div>
