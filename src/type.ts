@@ -12,3 +12,12 @@ export interface RecordDetail {
 export interface CityParams extends Record<string, string> {
   city: string;
 }
+
+export interface AppDetailParams extends Record<string, string> {
+  apps: string;
+}
+
+export interface AppDetail {
+  title: string;
+  content: string;
+}

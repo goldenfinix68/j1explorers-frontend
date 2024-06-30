@@ -1,3 +1,5 @@
+import { AppDetail } from "../type";
+
 export const CITIES: Record<string, string> = {
   la: "LA",
   vegas: "Vegas",
@@ -25,4 +27,17 @@ export const CONTACT_TYPES: Record<string, string> = {
   trains: "trains",
   airport: "airport shuttle",
   "grand-canyon-hoover-dam": "Grand Canyon/Hoover Dam",
+};
+
+export const APP_TYPES: Record<string, AppDetail> = {
+  "big-bus": {
+    title: "Big Bus Tours",
+    content:
+      "See available bus stops, site descriptions, and real-time bus locations.",
+  },
+  "app-in-the-air": {
+    title: "App in the Air",
+    content:
+      "Extremely useful for flight information, flight update notifications, and airport navigation.",
+  },
 };
