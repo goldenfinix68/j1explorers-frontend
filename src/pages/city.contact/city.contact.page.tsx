@@ -1,11 +1,12 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { CityParams } from "../../type";
-import { isValidCity } from "../../utils/validator";
+import { CityContactParams, CityParams } from "../../type";
+import { isValidCity, isValidContact } from "../../utils/validator";
 import HeaderComponent from "../../components/header";
 import {
   BUTTON_COLORS,
   CITIES,
+  CONTACT_TYPES,
   CONTENT_COLORS,
   DIVIDER_COLORS,
   TITLE_COLORS,
@@ -14,10 +15,10 @@ import DividerComponent from "../../components/divider";
 import NavButtonComponent from "../../components/nav.button";
 import ContactDetailComponent from "../../components/contact.detail";
 
-export const CityHotelPage: React.FC = () => {
-  const { city } = useParams<CityParams>();
+export const CityContactPage: React.FC = () => {
+  const { city, contact_type } = useParams<CityContactParams>();
 
-  if (!isValidCity(city)) {
+  if (!isValidCity(city) || !isValidContact(contact_type)) {
     return <div>Invalid City</div>;
   }
 
@@ -30,7 +31,11 @@ export const CityHotelPage: React.FC = () => {
         <div
           className={`flex flex-col ${TITLE_COLORS[city]} text-[29px] text-center font-bold leading-[24.16px]`}
         >
-          <span>{CITIES[city]} hotel</span>
+          <span>
+            {contact_type === "grand-canyon-hoover-dam"
+              ? CONTACT_TYPES[contact_type]
+              : `${CITIES[city]} ${CONTACT_TYPES[contact_type]}`}
+          </span>
         </div>
       </HeaderComponent>
       <div className="mx-3 font-bold leading-none text-center">
@@ -50,7 +55,7 @@ export const CityHotelPage: React.FC = () => {
         />
         <NavButtonComponent
           title="Get directions"
-          className={`${BUTTON_COLORS[city]} text-[33.33px] mt-3 font-light mb-4`}
+          className={`${BUTTON_COLORS[city]} text-[33.33px] mt-3 font-light mb-4 py-[11px]`}
           onClick={() => {}}
         />
         <DividerComponent className={DIVIDER_COLORS[city]} />
@@ -62,7 +67,7 @@ export const CityHotelPage: React.FC = () => {
         />
         <NavButtonComponent
           title="Call now"
-          className={`${BUTTON_COLORS[city]} text-[33.33px] mt-3 font-light mb-4`}
+          className={`${BUTTON_COLORS[city]} text-[33.33px] mt-3 font-light mb-4 py-[11px]`}
           onClick={() => {}}
         />
         <DividerComponent className={DIVIDER_COLORS[city]} />
@@ -74,7 +79,7 @@ export const CityHotelPage: React.FC = () => {
         />
         <NavButtonComponent
           title="Go to website"
-          className={`${BUTTON_COLORS[city]} text-[33.33px] mt-3 font-light mb-4`}
+          className={`${BUTTON_COLORS[city]} text-[33.33px] mt-3 font-light mb-4 py-[11px]`}
           onClick={() => {}}
         />
       </div>
