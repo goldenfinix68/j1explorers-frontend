@@ -10,11 +10,11 @@ export const HomePage: React.FC = () => {
     { path: "/tour-detail", title: "Your Tour Details" },
     { path: "/profile", title: "Profile/Pack Members" },
     { path: "/schedule", title: "Schedule/Reservations" },
-    { path: "/recommended", title: "Recommended Apps" },
+    { path: "/recommend", title: "Recommended Apps" },
     { path: "/contact", title: "Contact/Links" },
     { path: "/faq", title: "FAQs" },
     { path: "/terms", title: "Terms & Conditions" },
-    { path: "/flyer", title: "J1E Website/Flyer" },
+    { path: "/j1e", title: "J1E Website/Flyer" },
   ];
 
   return (
@@ -31,7 +31,7 @@ export const HomePage: React.FC = () => {
             key={title}
             onClick={() => navigate(path)}
             title={title}
-            className="bg-primary border-darkgreen text-[30px]"
+            className="bg-primary border-darkgreen text-[30px] mb-1"
           />
         ))}
       </nav>
