@@ -6,11 +6,14 @@ import "./header.component.css";
 import { Tour } from "../../store/tour/tour.type";
 import { tourSelector } from "../../store/tour/tour.selector";
 import { formatDate } from "../../utils/processDate";
+import { isVisible } from "@testing-library/user-event/dist/utils";
 interface HeaderComponentProps {
   children: React.ReactNode;
+  isVisible?: boolean;
 }
 export const HeaderComponent: React.FC<HeaderComponentProps> = ({
   children,
+  isVisible = true,
 }) => {
   const { firstName, lastName }: User = useSelector(userSelector);
   const { period, route }: Tour = useSelector(tourSelector);
@@ -23,21 +26,25 @@ export const HeaderComponent: React.FC<HeaderComponentProps> = ({
           <div>{lastName}</div>
         </div>
       </div>
-      <div className="flex justify-center text-[14.58px] font-bold">
-        <div className="text-primary">
-          start In&nbsp;
-          {route.from}
-          &nbsp;
-          {formatDate(period.from)}
+      {isVisible ? (
+        <div className="flex justify-center text-[14.58px] font-bold">
+          <div className="text-primary">
+            start In&nbsp;
+            {route.from}
+            &nbsp;
+            {formatDate(period.from)}
+          </div>
+          <div className="text-darkyellow">&nbsp;|&nbsp;</div>
+          <div className="text-secondary">
+            end In&nbsp;
+            {route.to}
+            &nbsp;
+            {formatDate(period.to)}
+          </div>
         </div>
-        <div className="text-darkyellow">&nbsp;|&nbsp;</div>
-        <div className="text-secondary">
-          end In&nbsp;
-          {route.to}
-          &nbsp;
-          {formatDate(period.to)}
-        </div>
-      </div>
+      ) : (
+        <div className="h-4"></div>
+      )}
     </div>
   );
 };
