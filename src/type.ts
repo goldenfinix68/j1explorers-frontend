@@ -37,7 +37,7 @@ export type ScheduleTitle = string | Pair<string>;
 
 export interface ScheduleDetail {
   time?: ScheduleTime;
-  location: ScheduleLocation;
+  location: Location | Pair<Location>;
   title: ScheduleTitle | Pair<ScheduleTitle>;
   content: string;
   image?: string;
@@ -47,4 +47,18 @@ export interface DaySchedule {
   title: ScheduleTitle;
   details: ScheduleDetail[];
   location: Location;
+}
+
+export interface DayScheduleParams extends Record<string, string> {
+  day_index: string;
+}
+
+export interface ScheduleDetailParams extends Record<string, string> {
+  day_index: string;
+  schedule_index: string;
+}
+
+export interface CityContactParams extends Record<string, string> {
+  city: string;
+  contact_type: string;
 }
