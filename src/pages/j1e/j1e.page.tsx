@@ -24,7 +24,7 @@ export const J1EPage: React.FC = () => {
         <NavButtonComponent
           onClick={() => {}}
           title="Visit Website"
-          className="bg-secondary border-darkyellow text-[29px] mt-5"
+          className="bg-secondary border-darkyellow text-[29px] mt-5 py-[11px]"
         />
         <img
           src={`${process.env.PUBLIC_URL}/assets/images/flyer.png`}
@@ -33,7 +33,7 @@ export const J1EPage: React.FC = () => {
         <NavButtonComponent
           onClick={() => {}}
           title="See flyer"
-          className="bg-secondary border-darkyellow text-[29px] mt-6"
+          className="bg-secondary border-darkyellow text-[29px] mt-6 py-[11px]"
         />
       </div>
     </>
