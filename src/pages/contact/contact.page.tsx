@@ -2,11 +2,12 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import NavButtonComponent from "../../components/nav.button";
 import HeaderComponent from "../../components/header";
-import { CITIES, COLORS } from "../../consts";
+import { CITIES, BUTTON_COLORS } from "../../consts";
+import { Location } from "../../type";
 
 export const ContactPage: React.FC = () => {
   const navigate = useNavigate();
-  const cities = ["la", "vegas", "nyc"];
+  const cities: Location[] = ["la", "vegas", "nyc"];
 
   return (
     <>
@@ -23,7 +24,7 @@ export const ContactPage: React.FC = () => {
         {cities.map((city) => (
           <NavButtonComponent
             title={`${CITIES[city]} Contacts/Links`}
-            className={`${COLORS[city]} text-[23.71px] mt-10`}
+            className={`${BUTTON_COLORS[city]} text-[23.71px] mt-10 mb-1 py-[11px]`}
             onClick={() => navigate(city)}
           />
         ))}
