@@ -31,7 +31,7 @@ export const HomePage: React.FC = () => {
             key={title}
             onClick={() => navigate(path)}
             title={title}
-            className="bg-primary border-darkgreen text-[30px] mb-1"
+            className="bg-primary border-darkgreen text-[30px] mb-1 py-[11px]"
           />
         ))}
       </nav>
