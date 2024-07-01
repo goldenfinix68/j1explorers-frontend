@@ -40,7 +40,7 @@ export const CityPage: React.FC = () => {
                 ? CONTACT_TYPES[contact]
                 : `${CITIES[city]} ${CONTACT_TYPES[contact]}`
             }
-            className={`text-[23.71px] ${BUTTON_COLORS[city]} mt-[45px] mb-1`}
+            className={`text-[23.71px] ${BUTTON_COLORS[city]} mt-[45px] mb-1 py-[11px]`}
             onClick={() => navigate(contact)}
           />
         ))}
