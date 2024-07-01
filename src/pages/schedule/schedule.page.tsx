@@ -2,66 +2,13 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import NavButtonComponent from "../../components/nav.button";
 import HeaderComponent from "../../components/header";
+import { schedules } from "../../consts/api_data";
+import { isPair } from "../../utils/common";
+import { BUTTON_COLORS } from "../../consts";
 
 export const SchedulePage: React.FC = () => {
   const navigate = useNavigate();
 
-  const scheduleArray = [
-    {
-      title: "Optional Additional Day",
-      backgroundColor: "bg-primary",
-      borderColor: "border-darkgreen",
-      path: "/schedule/3",
-    },
-    {
-      title: "September 3rd",
-      backgroundColor: "bg-primary",
-      borderColor: "border-darkgreen",
-      path: "/schedule/3",
-    },
-    {
-      title: "September 4th",
-      backgroundColor: "bg-primary",
-      borderColor: "border-darkgreen",
-      path: "/schedule/3",
-    },
-    {
-      title: "September 5th",
-      backgroundColor: "bg-darkyellow",
-      borderColor: "border-secondary",
-      path: "/schedule/3",
-    },
-    {
-      title: "September 6th",
-      backgroundColor: "bg-darkyellow",
-      borderColor: "border-secondary",
-      path: "/schedule/3",
-    },
-    {
-      title: "September 7th",
-      backgroundColor: "bg-secondary",
-      borderColor: "border-darkyellow",
-      path: "/schedule/7",
-    },
-    {
-      title: "September 8th",
-      backgroundColor: "bg-secondary",
-      borderColor: "border-darkyellow",
-      path: "/schedule/3",
-    },
-    {
-      title: "September 9th",
-      backgroundColor: "bg-secondary",
-      borderColor: "border-darkyellow",
-      path: "/schedule/3",
-    },
-    {
-      title: "Optional Additional Day",
-      backgroundColor: "bg-secondary",
-      borderColor: "border-darkyellow",
-      path: "/schedule/3",
-    },
-  ];
   return (
     <>
       <HeaderComponent>
@@ -74,11 +21,11 @@ export const SchedulePage: React.FC = () => {
         </div>
       </HeaderComponent>
       <div className="mx-3 text-[11.67px] mt-[18px] font-light">
-        {scheduleArray.map(({ title, backgroundColor, borderColor, path }) => (
+        {schedules.map(({ title, location }, index) => (
           <NavButtonComponent
-            title={title}
-            className={`${backgroundColor} ${borderColor} text-[23.71px]`}
-            onClick={() => navigate(path)}
+            title={isPair<string>(title) ? title.first : title}
+            className={`${BUTTON_COLORS[location]} text-[23.71px] mb-1 py-[11px]`}
+            onClick={() => navigate(index.toString())}
           />
         ))}
       </div>
