@@ -1,18 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { NavButtonComponent } from "../../components/nav.button/nav.button";
 import HeaderComponent from "../../components/header";
 import DividerComponent from "../../components/divider";
 
 export const TermsPage: React.FC = () => {
-  const apps = [
-    { path: "/", title: "Big Bus" },
-    { path: "/", title: "Google Maps" },
-    { path: "/", title: "App in the Air" },
-    { path: "/", title: "WhatsApp" },
-    { path: "/", title: "Uber" },
-  ];
-
   return (
     <>
       <HeaderComponent>
