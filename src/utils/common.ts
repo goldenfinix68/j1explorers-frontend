@@ -7,5 +7,17 @@ export const isPair = <T>(value: any): value is Pair<T> => {
 };
 
 export const processPairString = (data: string | Pair<string>): string => {
-  return isPair(data) ? `${data.first} ${data.second}` : data;
+  return isPair<string>(data) ? `${data.first} ${data.second}` : data;
+};
+
+export const getArrayFromPair = <T>(data: T | Pair<T>) => {
+  return isPair<T>(data) ? [data.first, data.second] : [data];
+};
+
+export const getFirstOfPair = <T>(data: T | Pair<T>): T => {
+  return isPair<T>(data) ? data.first : data;
+};
+
+export const getSecondOfPair = <T>(data: T | Pair<T>): T => {
+  return isPair<T>(data) ? data.second : data;
 };
