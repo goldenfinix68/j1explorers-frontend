@@ -33,7 +33,7 @@ export const CityContactPage: React.FC = () => {
         >
           <span>
             {contact_type === "grand-canyon-hoover-dam"
-              ? CONTACT_TYPES[contact_type]
+              ? "Grand Canyon/ Hoover-Dam"
               : `${CITIES[city]} ${CONTACT_TYPES[contact_type]}`}
           </span>
         </div>
