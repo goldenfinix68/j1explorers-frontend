@@ -1,9 +1,9 @@
 import { APP_TYPES, CITIES, CONTACT_TYPES } from "../consts";
+import { schedules } from "../consts/api_data";
+import { Location } from "../type";
 
-export const isValidCity = (
-  city: string | undefined
-): city is keyof typeof CITIES => {
-  return city !== undefined && city in CITIES;
+export const isValidCity = (city: string | undefined): city is Location => {
+  return city === "la" || city === "vegas" || city === "nyc";
 };
 
 export const isValidContact = (
@@ -16,4 +16,18 @@ export const isValidApps = (
   apps: string | undefined
 ): apps is keyof typeof APP_TYPES => {
   return apps !== undefined && apps in APP_TYPES;
+};
+
+export const isValidDayScheduleIndex = (index: string | undefined): boolean => {
+  return Number(index) >= 0 && Number(index) < schedules.length;
+};
+
+export const isValidScheduleIndex = (
+  day_index: string | undefined,
+  schedule_index: string | undefined
+): boolean => {
+  return (
+    Number(schedule_index) >= 0 &&
+    Number(schedule_index) < schedules[Number(day_index)].details.length
+  );
 };
