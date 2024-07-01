@@ -121,6 +121,11 @@ export const TourDetailPage: React.FC = () => {
         <div className="text-secondary">Total Paid</div>
         <div className="text-darkyellow">$1000</div>
       </div>
+      <div className="w-full flex">
+        <button className="bg-darkgreen border-[3px] border-primary rounded-xl px-[22px] py-2 text-white text-[24.16px] leading-none font-light mt-6 mr-5 ml-auto">
+          Edit
+        </button>
+      </div>
     </div>
   );
 };
