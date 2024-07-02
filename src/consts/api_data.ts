@@ -99,3 +99,27 @@ export const schedules: DaySchedule[] = [
   },
   { title: "Optional Additional Day", location: "nyc", details: [] },
 ];
+
+export const faqs = [
+  { category: "Included/Not included", content: [] },
+  {
+    category: "Accommodations",
+    content: [
+      { q: "Can I choose the location of a room in a hotel?", a: "" },
+      { q: "What if we want to switch pack members?", a: "" },
+      { q: "What if a pack member cancels?", a: "" },
+      { q: "Will each pack member have their own bed?", a: "" },
+      { q: "Do pack members have to have the same schedule?", a: "" },
+      { q: "Will all pack members be on the same flights?", a: "" },
+      { q: "Can separate packs be combined for a discount?", a: "" },
+      { q: "What if a pack member decides to leave mid-tour?", a: "" },
+    ],
+  },
+  { category: "Roommates (pack)", content: [] },
+  { category: "Payments", content: [] },
+  { category: "Cancellation policy", content: [] },
+  { category: "Luggage", content: [] },
+  { category: "Flights", content: [] },
+  { category: "Hotels", content: [] },
+  { category: "Tours", content: [] },
+];
