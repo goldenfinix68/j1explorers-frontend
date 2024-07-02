@@ -6,11 +6,8 @@ import "./header.component.css";
 import { Tour } from "../../store/tour/tour.type";
 import { tourSelector } from "../../store/tour/tour.selector";
 import { formatDate } from "../../utils/processDate";
-import { isVisible } from "@testing-library/user-event/dist/utils";
-interface HeaderComponentProps {
-  children: React.ReactNode;
-  isVisible?: boolean;
-}
+import { HeaderComponentProps } from "./type";
+
 export const HeaderComponent: React.FC<HeaderComponentProps> = ({
   children,
   isVisible = true,
