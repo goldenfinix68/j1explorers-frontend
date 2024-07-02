@@ -17,6 +17,9 @@ import AppDetailPage from "./pages/app.detail";
 import DaySchedulePage from "./pages/day.schedule";
 import ScheduleDetailPage from "./pages/schedule.detail";
 import CityContactPage from "./pages/city.contact";
+import FAQPage from "./pages/faq";
+import FAQCategoryPage from "./pages/faq.category";
+import FAQIncludedPage from "./pages/faq.included";
 
 const App: React.FC = () => {
   const location = useLocation();
@@ -110,6 +113,30 @@ const App: React.FC = () => {
           element={
             <PageTransition direction={-1}>
               <J1EPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/faq"
+          element={
+            <PageTransition direction={-1}>
+              <FAQPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/faq/0"
+          element={
+            <PageTransition direction={-1}>
+              <FAQIncludedPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/faq/:category"
+          element={
+            <PageTransition direction={-1}>
+              <FAQCategoryPage />
             </PageTransition>
           }
         />
