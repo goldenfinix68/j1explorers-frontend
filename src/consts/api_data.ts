@@ -20,7 +20,7 @@ export const schedules: DaySchedule[] = [
     details: [
       {
         time: { first: "8:30am -", second: "4:30pm" },
-        location: { first: "la", second: "vegas" },
+        location: "la",
         title: "Big Bus Tours",
         content:
           "You have access to the hop-on/off Big Bus Tours routes all day during their operating hours from 8:30am to 4:30pm. Just scan your QR code whenever you board the bus.",
@@ -31,12 +31,55 @@ export const schedules: DaySchedule[] = [
   {
     title: { first: "September 5th", second: "September 5" },
     location: "vegas",
-    details: [],
+    details: [
+      {
+        time: { first: "8am", second: "(or earlier)" },
+        location: "la",
+        title: "Hotel Checkout",
+        content: "",
+      },
+      {
+        time: "8:30am",
+        location: "la",
+        title: "Flyaway bus to to airport",
+        content: "",
+      },
+      {
+        time: "11:30am",
+        location: { first: "la", second: "vegas" },
+        title: "Flyaway bus to to airport",
+        content: "",
+      },
+      {
+        location: "vegas",
+        title: "Shuttle to hotel",
+        content: "",
+      },
+      {
+        location: "vegas",
+        title: "Hotel check-in",
+        content: "",
+      },
+      {
+        location: "vegas",
+        time: { first: "7pm -", second: "9pm" },
+        title: "Night bus (optional)",
+        content:
+          "The city night bus tour is included, however it requires signing up in advance. If it is something you want to participate in, you need to specify the date that you want to go no later than 2pm on the date of the tour.",
+      },
+    ],
   },
   {
     title: { first: "September 6th", second: "September 6" },
     location: "vegas",
-    details: [],
+    details: [
+      {
+        time: { first: "8:30am", second: "4:30pm" },
+        location: "vegas",
+        title: "Grand Canyon/Hoover Dam",
+        content: "",
+      },
+    ],
   },
   {
     title: { first: "September 7th", second: "September 7" },
@@ -90,12 +133,26 @@ export const schedules: DaySchedule[] = [
   {
     title: { first: "September 8th", second: "September 8" },
     location: "nyc",
-    details: [],
+    details: [
+      {
+        time: { first: "8:30am", second: "4:30pm" },
+        location: "nyc",
+        title: "Harbor/Statue of Liberty cruise",
+        content: "",
+      },
+    ],
   },
   {
     title: { first: "September 9th", second: "September 9" },
     location: "nyc",
-    details: [],
+    details: [
+      {
+        time: { first: "8am", second: "(or earlier)" },
+        location: "nyc",
+        title: "Hotel Checkout",
+        content: "",
+      },
+    ],
   },
   { title: "Optional Additional Day", location: "nyc", details: [] },
 ];
