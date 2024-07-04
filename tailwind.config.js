@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js,ts,mjs,tsx}"],
+  content: ["./src/**/*.{html,js,ts,mjs,tsx}", "./public/index.html"],
   theme: {
     extend: {
       colors: {
@@ -10,7 +10,7 @@ module.exports = {
         darkyellow: "#c56600",
       },
       fontFamily: {
-        myriad: ["Myriad Pro", "serif"],
+        myriad: ["Myriad Pro", "sans-serif"],
       },
     },
   },
