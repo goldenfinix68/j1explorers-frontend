@@ -40,4 +40,18 @@ export const APP_TYPES: Record<string, AppDetail> = {
     content:
       "Extremely useful for flight information, flight update notifications, and airport navigation.",
   },
+  uber: {
+    title: "Uber",
+    content:
+      "A convenient way for personalized travel and unexpected situations - for instance, if you are lost or you missed the last bus.",
+  },
+  "google-map": {
+    title: "Google Maps",
+    content:
+      "We will share a map with you of key locations including transportation and accommodations. Location sharing can also be useful for finding friends.",
+  },
+  whatsapp: {
+    title: "WhatsApp",
+    content: "The easiest way to contact J1 Explorers.",
+  },
 };
