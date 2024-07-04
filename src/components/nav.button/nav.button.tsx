@@ -1,12 +1,6 @@
 import React from "react";
+import { NavButtonProps } from "./type";
 
-interface NavButtonProps {
-  title?: string;
-  onClick: () => void;
-  className: string;
-  type?: boolean;
-  titleComponent?: React.ReactNode;
-}
 export const NavButtonComponent: React.FC<NavButtonProps> = ({
   type = true,
   onClick,
