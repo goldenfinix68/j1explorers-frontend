@@ -22,7 +22,7 @@ export const AppDetailPage: React.FC = () => {
         <Link to="/recommend">
           <img src={`${process.env.PUBLIC_URL}/assets/images/left_green.png`} />
         </Link>
-        <div className="flex flex-col text-secondary text-[29px] text-center font-bold leading-[24.16px]">
+        <div className="flex flex-col text-secondary text-[29px] text-center font-bold leading-none">
           <span>Apps</span>
           <span>{APP_TYPES[apps].title}</span>
         </div>
@@ -32,12 +32,12 @@ export const AppDetailPage: React.FC = () => {
         <div className="text-darkyellow text-[31.708px] font-bold leading-none mb-2 mt-4">
           {APP_TYPES[apps].title}
         </div>
-        <div className="text-[15.83px] text-darkyellow leading-none mx-7 italic font-semibold">
+        <div className="text-[15.83px] text-darkyellow leading-none mx-7 italic">
           {APP_TYPES[apps].content}
         </div>
         <img
           src={`${process.env.PUBLIC_URL}/assets/images/${apps}.png`}
-          className="mx-auto mt-9 mb-2"
+          className="w-52 mx-auto mt-9 mb-2 "
         />
         <NavButtonComponent
           type={false}

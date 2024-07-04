@@ -7,10 +7,10 @@ export const RecommendPage: React.FC = () => {
   const navigate = useNavigate();
   const apps = [
     { path: "big-bus", title: "Big Bus" },
-    { path: "/recommend", title: "Google Maps" },
+    { path: "google-map", title: "Google Maps" },
     { path: "app-in-the-air", title: "App in the Air" },
-    { path: "/", title: "WhatsApp" },
-    { path: "/", title: "Uber" },
+    { path: "whatsapp", title: "WhatsApp" },
+    { path: "uber", title: "Uber" },
   ];
 
   return (
@@ -28,7 +28,7 @@ export const RecommendPage: React.FC = () => {
         {apps.map(({ title, path }) => (
           <NavButtonComponent
             key={title}
-            onClick={path[0] === "/" ? () => {} : () => navigate(path)}
+            onClick={() => navigate(path)}
             title={title}
             className="bg-secondary border-darkyellow text-[29px] mt-11 py-[11px]"
           />
