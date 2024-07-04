@@ -62,3 +62,12 @@ export interface CityContactParams extends Record<string, string> {
   city: string;
   contact_type: string;
 }
+
+export interface Category extends Record<string, any> {
+  id: number;
+  title: string;
+}
+
+export interface CategoriesResponse extends Record<string, any> {
+  categories: Category[];
+}

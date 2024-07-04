@@ -2,10 +2,11 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { NavButtonComponent } from "../../components/nav.button/nav.button";
 import HeaderComponent from "../../components/header";
-import { faqs } from "../../consts/api_data";
+import { useFetchCategoriesQuery } from "../../service/categoryService";
 
 export const FAQPage: React.FC = () => {
   const navigate = useNavigate();
+  const { data, error, isLoading } = useFetchCategoriesQuery();
 
   return (
     <>
@@ -19,11 +20,16 @@ export const FAQPage: React.FC = () => {
         </div>
       </HeaderComponent>
       <nav className="flex flex-col mx-2 mt-[10px] font-light">
-        {faqs.map(({ category, content }, index) => (
+        <NavButtonComponent
+          onClick={() => navigate("0")}
+          title="Included/Not Included"
+          className="bg-secondary border-darkyellow text-[23.91px] py-[11px] mb-1"
+        />
+        {data?.categories.map(({ id, title }) => (
           <NavButtonComponent
-            key={category}
-            onClick={() => navigate(index.toString())}
-            title={category}
+            key={title}
+            onClick={() => navigate(id.toString())}
+            title={title}
             className="bg-secondary border-darkyellow text-[23.91px] py-[11px] mb-1"
           />
         ))}
