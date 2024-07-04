@@ -71,3 +71,13 @@ export interface Category extends Record<string, any> {
 export interface CategoriesResponse extends Record<string, any> {
   categories: Category[];
 }
+
+export interface Faq extends Record<string, any> {
+  id: number;
+  question: string;
+  answer: string;
+}
+
+export interface FaqsResponse extends Record<string, any> {
+  faqs: Faq[];
+}

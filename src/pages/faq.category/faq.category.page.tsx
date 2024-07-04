@@ -4,10 +4,14 @@ import { NavButtonComponent } from "../../components/nav.button/nav.button";
 import HeaderComponent from "../../components/header";
 import { faqs } from "../../consts/api_data";
 import { FAQCategoryParams } from "./type";
+import { useFetchFaqsByCategoryQuery } from "../../service/faqService";
 
 export const FAQCategoryPage: React.FC = () => {
   const navigate = useNavigate();
   const { category } = useParams<FAQCategoryParams>();
+  const { data, error, isLoading } = useFetchFaqsByCategoryQuery(
+    Number(category)
+  );
 
   return (
     <>
@@ -21,12 +25,14 @@ export const FAQCategoryPage: React.FC = () => {
         </div>
       </HeaderComponent>
       <nav className="flex flex-col mx-2 mt-[10px] font-light">
-        {faqs[Number(category)].content.map(({ q }, index) => (
+        {data?.faqs.map(({ id, question }) => (
           <NavButtonComponent
             type={false}
-            key={q}
-            onClick={() => navigate(index.toString())}
-            titleComponent={<div className="mr-[6px] text-left">{q}</div>}
+            key={id}
+            onClick={() => navigate(id.toString())}
+            titleComponent={
+              <div className="mr-[6px] text-left">{question}</div>
+            }
             className="bg-secondary border-darkyellow text-[19.291px] py-[11px] mb-1 leading-none font-light"
           />
         ))}
