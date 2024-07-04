@@ -99,7 +99,7 @@ export const ScheduleDetailPage: React.FC = () => {
         <div
           className={`text-[14.08px] ${
             CONTENT_COLORS[getSecondOfPair(scheduleDetail.location)]
-          } leading-none font-semibold mx-6 italic`}
+          } leading-none mx-6 italic`}
         >
           {scheduleDetail.content}
         </div>
