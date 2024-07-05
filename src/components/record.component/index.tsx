@@ -1,3 +1,3 @@
-import { RecordComponent } from "./record.component";
-
-export default RecordComponent;
+export { RecordComponent } from "./record.component";
+export { InputRecordComponent } from "./input.record.component";
+export { DateRecordComponent } from "./date.record.component";
