@@ -81,3 +81,34 @@ export interface Faq extends Record<string, any> {
 export interface FaqsResponse extends Record<string, any> {
   faqs: Faq[];
 }
+
+export interface UserResponse extends Record<string, string | Date> {
+  id: string;
+  fullname: string;
+  email: string;
+  gender: string;
+  birthdate: Date;
+  phone: string;
+  whatsapp: string;
+  employer: string;
+  passport_country: string;
+  birthcity: string;
+  passport_number: string;
+  expiration_date: Date;
+}
+
+export interface UserDetail extends Record<string, string | Date | undefined> {
+  fullname?: string;
+  email?: string;
+  gender?: string;
+  birthdate?: Date;
+  phone?: string;
+  whatsapp?: string;
+  employer?: string;
+  passport_country?: string;
+  birthcity?: string;
+  passport_number?: string;
+  expiration_date?: Date;
+}
+
+export type DateKey = "year" | "month" | "day";
