@@ -29,14 +29,14 @@ export const HeaderComponent: React.FC<HeaderComponentProps> = ({
             start In&nbsp;
             {route.from}
             &nbsp;
-            {formatDate(period.from)}
+            {formatDate(period.from, ["month", "day"], "short")}
           </div>
           <div className="text-darkyellow">&nbsp;|&nbsp;</div>
           <div className="text-secondary">
             end In&nbsp;
             {route.to}
             &nbsp;
-            {formatDate(period.to)}
+            {formatDate(period.to, ["month", "day"], "short")}
           </div>
         </div>
       ) : (
