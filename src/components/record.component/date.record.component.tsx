@@ -20,7 +20,6 @@ export const DateRecordComponent: React.FC<DateRecordComponentProps> = ({
   icon,
   onInput,
 }) => {
-  console.log(typeof description, description);
   return (
     <div className={className}>
       {icon && <img src={icon} className="w-fit h-fit mr-[3px]" />}
