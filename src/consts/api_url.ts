@@ -9,6 +9,10 @@ export const api_url = {
       update: `${BASE_URL}/user/me/update`,
     },
   },
+  tour: {
+    root: `${BASE_URL}/tour`,
+    fetchPackMembers: `${BASE_URL}/fetchPackMembers`,
+  },
   category: {
     root: `${BASE_URL}/category`,
     fetchCategories: `${BASE_URL}/category/fetchCategories`,
