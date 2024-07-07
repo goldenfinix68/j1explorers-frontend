@@ -82,6 +82,12 @@ export interface FaqsResponse extends Record<string, any> {
   faqs: Faq[];
 }
 
+export interface UserEssential extends Record<string, string> {
+  id: string;
+  fullname: string;
+  email: string;
+}
+
 export interface UserResponse extends Record<string, string | Date> {
   id: string;
   fullname: string;
@@ -112,3 +118,30 @@ export interface UserDetail extends Record<string, string | Date | undefined> {
 }
 
 export type DateKey = "year" | "month" | "day";
+
+export interface TourResponse
+  extends Record<string, string | Date | number | Boolean | UserEssential> {
+  id: number;
+  book: Date;
+  main_tour_price: number;
+  type: Boolean;
+  addition_tour_name: string;
+  addition_tour_date: Date;
+  addition_tour_book: Date;
+  addition_tour_price: number;
+  addition_days_type: number;
+  addition_days_book: Date;
+  addition_days_price: number;
+  paid: number;
+  userId1: string;
+  userId2: string;
+  userId3: string;
+  userId4: string;
+}
+
+export interface PackMembers extends Record<string, UserEssential | null> {
+  user1: UserEssential | null;
+  user2: UserEssential | null;
+  user3: UserEssential | null;
+  user4: UserEssential | null;
+}
