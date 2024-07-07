@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { api_url } from "../consts";
-import { FaqsResponse } from "../type";
+import { Faq, FaqsResponse } from "../type";
 
 export const faqApi = createApi({
   reducerPath: "faqApi",
@@ -15,7 +15,10 @@ export const faqApi = createApi({
     fetchFaqsByCategory: builder.query<FaqsResponse, number>({
       query: (category) => `/fetchFaqsByCategory?category=${category}`,
     }),
+    fetchFaqById: builder.query<Faq, number>({
+      query: (id) => `/fetchFaq?id=${id}`,
+    }),
   }),
 });
 
-export const { useFetchFaqsByCategoryQuery } = faqApi;
+export const { useFetchFaqsByCategoryQuery, useFetchFaqByIdQuery } = faqApi;

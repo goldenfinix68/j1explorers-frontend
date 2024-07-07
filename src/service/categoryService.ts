@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { api_url } from "../consts";
-import { CategoriesResponse } from "../type";
+import { CategoriesResponse, Category } from "../type";
 
 export const categoryApi = createApi({
   reducerPath: "categoryApi",
@@ -15,7 +15,11 @@ export const categoryApi = createApi({
     fetchCategories: builder.query<CategoriesResponse, void>({
       query: () => `/fetchCategories`,
     }),
+    fetchCategoryById: builder.query<Category, number>({
+      query: (id) => `/fetchCategory?id=${id}`,
+    }),
   }),
 });
 
-export const { useFetchCategoriesQuery } = categoryApi;
+export const { useFetchCategoriesQuery, useFetchCategoryByIdQuery } =
+  categoryApi;
