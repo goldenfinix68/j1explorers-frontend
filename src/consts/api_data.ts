@@ -19,7 +19,7 @@ export const schedules: DaySchedule[] = [
     location: "la",
     details: [
       {
-        time: { first: "8:30am -", second: "4:30pm" },
+        time: { first: "9am -", second: "4:30pm" },
         location: "la",
         title: "Big Bus Tours",
         content:
@@ -45,7 +45,7 @@ export const schedules: DaySchedule[] = [
         content: "",
       },
       {
-        time: "11:30am",
+        time: "10:35am",
         location: { first: "la", second: "vegas" },
         title: "Flyaway bus to to airport",
         content: "",
@@ -62,6 +62,11 @@ export const schedules: DaySchedule[] = [
       },
       {
         location: "vegas",
+        title: "Hop-on/off bus",
+        content: "",
+      },
+      {
+        location: "vegas",
         time: { first: "7pm -", second: "9pm" },
         title: "Night bus (optional)",
         content:
@@ -74,10 +79,16 @@ export const schedules: DaySchedule[] = [
     location: "vegas",
     details: [
       {
-        time: { first: "8:30am", second: "4:30pm" },
         location: "vegas",
-        title: "Grand Canyon/Hoover Dam",
+        title: "Hop-on/off bus",
         content: "",
+      },
+      {
+        location: "vegas",
+        time: { first: "7pm -", second: "9pm" },
+        title: "Night bus (optional)",
+        content:
+          "The city night bus tour is included, however it requires signing up in advance. If it is something you want to participate in, you need to specify the date that you want to go no later than 2pm on the date of the tour.",
       },
     ],
   },
@@ -123,6 +134,11 @@ export const schedules: DaySchedule[] = [
       },
       {
         location: "nyc",
+        title: "Hop-on/off bus",
+        content: "",
+      },
+      {
+        location: "nyc",
         time: { first: "7pm -", second: "9pm" },
         title: "Night bus (optional)",
         content:
@@ -135,10 +151,16 @@ export const schedules: DaySchedule[] = [
     location: "nyc",
     details: [
       {
-        time: { first: "8:30am", second: "4:30pm" },
         location: "nyc",
-        title: "Harbor/Statue of Liberty cruise",
+        title: "Hop-on/off bus",
         content: "",
+      },
+      {
+        location: "nyc",
+        time: { first: "7pm -", second: "9pm" },
+        title: "Night bus (optional)",
+        content:
+          "The city night bus tour is included, however it requires signing up in advance. If it is something you want to participate in, you need to specify the date that you want to go no later than 2pm on the date of the tour.",
       },
     ],
   },
@@ -147,7 +169,7 @@ export const schedules: DaySchedule[] = [
     location: "nyc",
     details: [
       {
-        time: { first: "8am", second: "(or earlier)" },
+        time: { first: "11am", second: "(or earlier)" },
         location: "nyc",
         title: "Hotel Checkout",
         content: "",
