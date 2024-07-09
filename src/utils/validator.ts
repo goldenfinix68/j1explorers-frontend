@@ -1,5 +1,5 @@
 import { APP_TYPES, CITIES, CONTACT_TYPES } from "../consts";
-import { schedules } from "../consts/api_data";
+import { schedules } from "../consts/schedules_data";
 import { Location } from "../type";
 
 export const isValidCity = (city: string | undefined): city is Location => {
@@ -20,14 +20,4 @@ export const isValidApps = (
 
 export const isValidDayScheduleIndex = (index: string | undefined): boolean => {
   return Number(index) >= 0 && Number(index) < schedules.length;
-};
-
-export const isValidScheduleIndex = (
-  day_index: string | undefined,
-  schedule_index: string | undefined
-): boolean => {
-  return (
-    Number(schedule_index) >= 0 &&
-    Number(schedule_index) < schedules[Number(day_index)].details.length
-  );
 };
