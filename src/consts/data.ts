@@ -1,10 +1,12 @@
-import { AppDetail } from "../type";
+import { AppDetail, Location } from "../type";
 
 export const CITIES: Record<string, string> = {
   la: "LA",
   vegas: "Vegas",
   nyc: "NYC",
 };
+
+export const cities: Location[] = ["la", "vegas", "nyc"];
 
 export const CITY_CONTACTS: Record<string, string[]> = {
   la: ["hotel", "fly-away", "hop-on-off", "coordinator"],
