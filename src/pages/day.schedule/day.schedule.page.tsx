@@ -10,7 +10,7 @@ import {
   ScheduleTitle,
 } from "../../type";
 import { isValidDayScheduleIndex } from "../../utils/validator";
-import { schedules } from "../../consts/api_data";
+import { schedules } from "../../consts/schedules_data";
 import { BUTTON_COLORS, TITLE_COLORS, cities } from "../../consts";
 import {
   getArrayFromPair,

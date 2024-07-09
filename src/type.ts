@@ -45,7 +45,6 @@ export interface ScheduleDetail {
 
 export interface DaySchedule {
   title: ScheduleTitle;
-  details: ScheduleDetail[];
   location: Location;
 }
 

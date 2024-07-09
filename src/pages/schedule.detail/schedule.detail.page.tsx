@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import HeaderComponent from "../../components/header";
 import DividerComponent from "../../components/divider";
 import { CONTENT_COLORS, TITLE_COLORS, cities } from "../../consts";
-import { schedules } from "../../consts/api_data";
+import { schedules } from "../../consts/schedules_data";
 import {
   ScheduleDetailParams,
   ScheduleTitle,
