@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { api_url } from "../consts";
-import { UserDetail, UserResponse } from "../type";
+import { LoginResponse, UserDetail, UserResponse, Credentials } from "../type";
 
 export const userApi = createApi({
   reducerPath: "userApi",
@@ -13,6 +13,13 @@ export const userApi = createApi({
     },
   }),
   endpoints: (builder) => ({
+    login: builder.mutation<LoginResponse, Credentials>({
+      query: (credential) => ({
+        url: "/login",
+        method: "POST",
+        body: credential,
+      }),
+    }),
     fetchMe: builder.query<UserResponse, void>({
       query: () => `/me`,
     }),
@@ -26,4 +33,5 @@ export const userApi = createApi({
   }),
 });
 
-export const { useFetchMeQuery, useUpdateProfileMutation } = userApi;
+export const { useFetchMeQuery, useUpdateProfileMutation, useLoginMutation } =
+  userApi;

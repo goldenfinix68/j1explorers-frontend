@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { api_url } from "../consts";
-import { PackMembers, TourResponse } from "../type";
+import { PackMembers, SchedulesResponse, TourResponse } from "../type";
 
 export const tourApi = createApi({
   reducerPath: "tourApi",
@@ -19,7 +19,14 @@ export const tourApi = createApi({
     fetchTour: builder.query<TourResponse, void>({
       query: () => `/fetchTourByUserId`,
     }),
+    fetchTourWithSchedules: builder.query<SchedulesResponse, string>({
+      query: (day) => `/fetchTourWithSchedules?day=${day}`,
+    }),
   }),
 });
 
-export const { useFetchPackMembersQuery, useFetchTourQuery } = tourApi;
+export const {
+  useFetchPackMembersQuery,
+  useFetchTourQuery,
+  useFetchTourWithSchedulesQuery,
+} = tourApi;
