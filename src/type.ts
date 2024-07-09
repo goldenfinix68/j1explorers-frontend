@@ -82,14 +82,25 @@ export interface FaqsResponse extends Record<string, any> {
   faqs: Faq[];
 }
 
+export interface Credentials {
+  username: string;
+  password: string;
+}
+
+export interface LoginResponse {
+  token: string;
+}
+
 export interface UserEssential extends Record<string, string> {
   id: string;
+  username: string;
   fullname: string;
   email: string;
 }
 
 export interface UserResponse extends Record<string, string | Date> {
   id: string;
+  username: string;
   fullname: string;
   email: string;
   gender: string;
@@ -104,6 +115,7 @@ export interface UserResponse extends Record<string, string | Date> {
 }
 
 export interface UserDetail extends Record<string, string | Date | undefined> {
+  username?: string;
   fullname?: string;
   email?: string;
   gender?: string;
@@ -145,3 +157,17 @@ export interface PackMembers extends Record<string, UserEssential | null> {
   user3: UserEssential | null;
   user4: UserEssential | null;
 }
+
+export interface Schedule extends Record<string, string | number> {
+  id: number;
+  title: string;
+  from: number;
+  to: number;
+  content: string;
+  type: string;
+  day: number;
+  image: string;
+  time: string;
+}
+
+export type SchedulesResponse = Schedule[];
