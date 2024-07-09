@@ -1,6 +1,13 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { api_url } from "../consts";
-import { LoginResponse, UserDetail, UserResponse, Credentials } from "../type";
+import {
+  LoginResponse,
+  UserDetail,
+  UserResponse,
+  Credentials,
+  PasswordUpdate,
+  APIResult,
+} from "../type";
 
 export const userApi = createApi({
   reducerPath: "userApi",
@@ -30,8 +37,19 @@ export const userApi = createApi({
         body: profile,
       }),
     }),
+    changePassword: builder.mutation<PasswordUpdate, APIResult>({
+      query: (passwordUpdate) => ({
+        url: `/me/changePassword`,
+        method: `PUT`,
+        body: passwordUpdate,
+      }),
+    }),
   }),
 });
 
-export const { useFetchMeQuery, useUpdateProfileMutation, useLoginMutation } =
-  userApi;
+export const {
+  useFetchMeQuery,
+  useUpdateProfileMutation,
+  useLoginMutation,
+  useChangePasswordMutation,
+} = userApi;

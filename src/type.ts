@@ -91,6 +91,11 @@ export interface LoginResponse {
   token: string;
 }
 
+export interface PasswordUpdate {
+  old_password: string;
+  new_password: string;
+}
+
 export interface UserEssential extends Record<string, string> {
   id: string;
   username: string;
@@ -171,3 +176,7 @@ export interface Schedule extends Record<string, string | number> {
 }
 
 export type SchedulesResponse = Schedule[];
+
+export interface APIResult {
+  result: string;
+}
