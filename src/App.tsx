@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import "./App.css";
 import { Route, Routes, useLocation, Navigate } from "react-router-dom";
-import { Direction } from "./type";
 import HomePage from "./pages/home";
-import TourDetailPage from "./pages/tour.detail";
+import { TourDetailPage, TourDetailEditPage } from "./pages/tour.detail";
 import { AnimatePresence } from "framer-motion";
 import SchedulePage from "./pages/schedule";
 import { PageWrapper } from "./containers/page.wrapper";
@@ -47,6 +46,14 @@ const App: React.FC = () => {
           element={
             <PageWrapper direction={direction}>
               <TourDetailPage />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/tour-detail/edit"
+          element={
+            <PageWrapper direction={direction}>
+              <TourDetailEditPage />
             </PageWrapper>
           }
         />
