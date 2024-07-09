@@ -3,28 +3,47 @@ import HeaderComponent from "../../components/header";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import ComplexButtonComponent from "../../components/complex.button";
 import NavButtonComponent from "../../components/nav.button";
-import { DayScheduleParams, Location, ScheduleTitle } from "../../type";
+import {
+  DayScheduleParams,
+  Direction,
+  Location,
+  ScheduleTitle,
+} from "../../type";
 import { isValidDayScheduleIndex } from "../../utils/validator";
 import { schedules } from "../../consts/api_data";
-import { BUTTON_COLORS, TITLE_COLORS } from "../../consts";
+import { BUTTON_COLORS, TITLE_COLORS, cities } from "../../consts";
 import {
   getArrayFromPair,
   getFirstOfPair,
   getSecondOfPair,
   processPairString,
 } from "../../utils/common";
+import { useDispatch } from "react-redux";
+import { setDirection } from "../../store/direction/direction.slice";
+import { useFetchTourWithSchedulesQuery } from "../../service/tourService";
 export const DaySchedulePage: React.FC = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { day_index } = useParams<DayScheduleParams>();
+  const { data } = useFetchTourWithSchedulesQuery(day_index || "1");
 
   if (!isValidDayScheduleIndex(day_index)) {
     return <div>Invalid Index</div>;
   }
 
+  const handleDirection = (direction: Direction) => {
+    dispatch(setDirection(direction));
+  };
+
+  const handleNavigation = (link: string) => {
+    handleDirection(1);
+    navigate(link);
+  };
+
   return (
     <>
       <HeaderComponent>
-        <Link to="/schedule">
+        <Link to="/schedule" onClick={() => handleDirection(-1)}>
           <img
             src={`${process.env.PUBLIC_URL}/assets/images/left_yellow.png`}
           />
@@ -49,31 +68,26 @@ export const DaySchedulePage: React.FC = () => {
         </div>
       </HeaderComponent>
       <div className="mx-3">
-        {schedules[Number(day_index)].details.map(
-          ({ time, location, title }, index) =>
-            time ? (
-              <ComplexButtonComponent
-                left_title={getArrayFromPair(time)}
-                left_className={
-                  BUTTON_COLORS[getFirstOfPair<Location>(location)]
-                }
-                right_title={processPairString(
-                  getFirstOfPair<ScheduleTitle>(title)
-                )}
-                right_className={
-                  BUTTON_COLORS[getSecondOfPair<Location>(location)]
-                }
-                onClick={() => navigate(index.toString())}
-              />
-            ) : (
-              <NavButtonComponent
-                title={processPairString(getFirstOfPair<ScheduleTitle>(title))}
-                className={`${
-                  BUTTON_COLORS[getFirstOfPair<Location>(location)]
-                } text-[18.25px] font-light mb-1 py-[11px]`}
-                onClick={() => navigate(index.toString())}
-              />
-            )
+        {data?.map(({ time, from, to, title }, index) =>
+          time ? (
+            <ComplexButtonComponent
+              left_title={[...time.split(/(?=[-(])/)]}
+              left_className={BUTTON_COLORS[cities[from]]}
+              right_title={title}
+              right_className={
+                BUTTON_COLORS[getSecondOfPair<Location>(cities[to])]
+              }
+              onClick={() => handleNavigation(index.toString())}
+            />
+          ) : (
+            <NavButtonComponent
+              title={processPairString(getFirstOfPair<ScheduleTitle>(title))}
+              className={`${
+                BUTTON_COLORS[cities[from]]
+              } text-[18.25px] font-light mb-1 py-[11px]`}
+              onClick={() => handleNavigation(index.toString())}
+            />
+          )
         )}
       </div>
     </>
