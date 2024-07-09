@@ -17,6 +17,10 @@ export const api_url = {
     root: `${BASE_URL}/category`,
     fetchCategories: `${BASE_URL}/category/fetchCategories`,
   },
+  schedule: {
+    root: `${BASE_URL}/schedule`,
+    fetchSchedule: `${BASE_URL}/schdule/fetchSchedule`,
+  },
   faq: {
     root: `${BASE_URL}/faq`,
     fetchFaqsByCategory: `${BASE_URL}/faq/fetchFaqsByCategory`,
