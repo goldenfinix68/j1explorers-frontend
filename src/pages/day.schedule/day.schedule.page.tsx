@@ -68,7 +68,7 @@ export const DaySchedulePage: React.FC = () => {
         </div>
       </HeaderComponent>
       <div className="mx-3">
-        {data?.map(({ time, from, to, title }, index) =>
+        {data?.map(({ time, from, to, title, id }, index) =>
           time ? (
             <ComplexButtonComponent
               left_title={[...time.split(/(?=[-(])/)]}
@@ -77,7 +77,7 @@ export const DaySchedulePage: React.FC = () => {
               right_className={
                 BUTTON_COLORS[getSecondOfPair<Location>(cities[to])]
               }
-              onClick={() => handleNavigation(index.toString())}
+              onClick={() => handleNavigation(id.toString())}
             />
           ) : (
             <NavButtonComponent
@@ -85,7 +85,7 @@ export const DaySchedulePage: React.FC = () => {
               className={`${
                 BUTTON_COLORS[cities[from]]
               } text-[18.25px] font-light mb-1 py-[11px]`}
-              onClick={() => handleNavigation(index.toString())}
+              onClick={() => handleNavigation(id.toString())}
             />
           )
         )}
