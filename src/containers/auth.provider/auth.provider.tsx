@@ -11,7 +11,7 @@ import { UserDetail, UserResponse } from "../../type";
 
 interface AuthContextType {
   user: UserResponse | null;
-  login: (userData: UserResponse) => void;
+  login: (token: string) => void;
   logout: () => void;
 }
 
@@ -31,11 +31,14 @@ interface AuthProviderProps {
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [user, setUser] = useState<UserResponse | null>(null);
+  const [token, setToken] = useState<string>(
+    localStorage.getItem("token") || ""
+  );
   const { data, isLoading, error } = useFetchMeQuery();
-  const token = localStorage.getItem("token");
 
-  const login = (userData: UserResponse) => {
-    setUser(userData);
+  const login = (token: string) => {
+    localStorage.setItem("token", token);
+    setToken(token);
   };
 
   const logout = () => {
