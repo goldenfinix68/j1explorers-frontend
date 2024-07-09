@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, Navigate } from "react-router-dom";
 import { Direction } from "./type";
 import HomePage from "./pages/home";
 import TourDetailPage from "./pages/tour.detail";
 import { AnimatePresence } from "framer-motion";
 import SchedulePage from "./pages/schedule";
-import PageTransition from "./pages/page.transition";
-import ProfilePage from "./pages/profile";
+import { PageWrapper } from "./containers/page.wrapper";
+import { ProfilePage, ProfileEditPage } from "./pages/profile";
 import ContactPage from "./pages/contact";
 import CityPage from "./pages/city";
 import RecommendPage from "./pages/recommend";
@@ -20,140 +20,170 @@ import CityContactPage from "./pages/city.contact";
 import FAQPage from "./pages/faq";
 import FAQCategoryPage from "./pages/faq.category";
 import FAQIncludedPage from "./pages/faq.included";
+import FAQAnswerPage from "./pages/faq.answer";
+import { directionSelector } from "./store/direction/direction.selector";
+import { useSelector } from "react-redux";
+import LoginPage from "./pages/login";
+import FAQMainPage from "./pages/faq.main";
 
 const App: React.FC = () => {
   const location = useLocation();
-  const direction: Direction = location.pathname === "/" ? 1 : -1;
+  const direction = useSelector(directionSelector);
 
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
+        <Route path="/login" element={<LoginPage />} />
         <Route
           path="/"
           element={
-            <PageTransition direction={direction}>
+            <PageWrapper direction={direction}>
               <HomePage />
-            </PageTransition>
+            </PageWrapper>
           }
         />
         <Route
           path="/tour-detail"
           element={
-            <PageTransition direction={-1}>
+            <PageWrapper direction={direction}>
               <TourDetailPage />
-            </PageTransition>
+            </PageWrapper>
           }
         />
         <Route
           path="/profile"
           element={
-            <PageTransition direction={-1}>
+            <PageWrapper direction={direction}>
               <ProfilePage />
-            </PageTransition>
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/profile/edit"
+          element={
+            <PageWrapper direction={direction}>
+              <ProfileEditPage />
+            </PageWrapper>
           }
         />
         <Route
           path="/schedule"
           element={
-            <PageTransition direction={-1}>
+            <PageWrapper direction={direction}>
               <SchedulePage />
-            </PageTransition>
+            </PageWrapper>
           }
         />
         <Route
           path="/schedule/:day_index"
           element={
-            <PageTransition direction={-1}>
+            <PageWrapper direction={direction}>
               <DaySchedulePage />
-            </PageTransition>
+            </PageWrapper>
           }
         />
         <Route
           path="/schedule/:day_index/:schedule_index"
           element={
-            <PageTransition direction={-1}>
+            <PageWrapper direction={direction}>
               <ScheduleDetailPage />
-            </PageTransition>
+            </PageWrapper>
           }
         />
         <Route
           path="/contact"
           element={
-            <PageTransition direction={-1}>
+            <PageWrapper direction={direction}>
               <ContactPage />
-            </PageTransition>
+            </PageWrapper>
           }
         />
         <Route
           path="/contact/:city"
           element={
-            <PageTransition direction={-1}>
+            <PageWrapper direction={direction}>
               <CityPage />
-            </PageTransition>
+            </PageWrapper>
           }
         />
         <Route
           path="/contact/:city/:contact_type"
           element={
-            <PageTransition direction={-1}>
+            <PageWrapper direction={direction}>
               <CityContactPage />
-            </PageTransition>
+            </PageWrapper>
           }
         />
         <Route
           path="/recommend"
           element={
-            <PageTransition direction={-1}>
+            <PageWrapper direction={direction}>
               <RecommendPage />
-            </PageTransition>
+            </PageWrapper>
           }
         />
         <Route
           path="/j1e"
           element={
-            <PageTransition direction={-1}>
+            <PageWrapper direction={direction}>
               <J1EPage />
-            </PageTransition>
+            </PageWrapper>
           }
         />
         <Route
           path="/faq"
           element={
-            <PageTransition direction={-1}>
+            <PageWrapper direction={direction}>
               <FAQPage />
-            </PageTransition>
+            </PageWrapper>
           }
         />
         <Route
-          path="/faq/0"
+          path="/faq/main"
           element={
-            <PageTransition direction={-1}>
+            <PageWrapper direction={direction}>
+              <FAQMainPage />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/faq/main/0"
+          element={
+            <PageWrapper direction={direction}>
               <FAQIncludedPage />
-            </PageTransition>
+            </PageWrapper>
           }
         />
         <Route
           path="/faq/:category"
           element={
-            <PageTransition direction={-1}>
+            <PageWrapper direction={direction}>
               <FAQCategoryPage />
-            </PageTransition>
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/faq/:category/:question"
+          element={
+            <PageWrapper direction={direction}>
+              <FAQAnswerPage />
+            </PageWrapper>
           }
         />
         <Route
           path="/terms"
           element={
-            <PageTransition direction={-1}>
+            <PageWrapper direction={direction}>
               <TermsPage />
-            </PageTransition>
+            </PageWrapper>
           }
         />
         <Route
           path="/recommend/:apps"
           element={
-            <PageTransition direction={-1}>
+            <PageWrapper direction={direction}>
               <AppDetailPage />
-            </PageTransition>
+            </PageWrapper>
           }
         />
       </Routes>
