@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import store from "./store";
 import { BrowserRouter as Router } from "react-router-dom";
+import { AuthProvider } from "./containers/auth.provider/auth.provider";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -13,7 +14,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <Provider store={store}>
     <Router basename="j1explorers-frontend">
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </Router>
   </Provider>
 );
