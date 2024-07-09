@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { setDirection } from "../../store/direction/direction.slice";
 import { Direction } from "../../type";
 
-export const FAQPage: React.FC = () => {
+export const FAQMainPage: React.FC = () => {
   const navigate = useNavigate();
   const { data, error, isLoading } = useFetchCategoriesQuery();
   const dispatch = useDispatch();
@@ -29,23 +29,22 @@ export const FAQPage: React.FC = () => {
         </Link>
         <div className="flex flex-col text-secondary text-[29px] text-center font-bold leading-[24.16px]">
           <span>FAQs</span>
-          <span>Categories</span>
+          <span className="tracking-tight text-[22px]">
+            Included/Not Included
+          </span>
         </div>
       </HeaderComponent>
       <nav className="flex flex-col mx-2 mt-[10px] font-light">
         <NavButtonComponent
-          onClick={() => handleNavigation("main")}
-          title="Included/Not Included"
+          onClick={() => handleNavigation("0")}
+          title="Included"
           className="bg-secondary border-darkyellow text-[23.91px] py-[11px] mb-1"
         />
-        {data?.categories.map(({ id, title }) => (
-          <NavButtonComponent
-            key={title}
-            onClick={() => handleNavigation(id.toString())}
-            title={title}
-            className="bg-secondary border-darkyellow text-[23.91px] py-[11px] mb-1"
-          />
-        ))}
+        <NavButtonComponent
+          onClick={() => handleNavigation("1")}
+          title="Not Included"
+          className="bg-secondary border-darkyellow text-[23.91px] py-[11px] mb-1"
+        />
       </nav>
     </>
   );

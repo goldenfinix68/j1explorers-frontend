@@ -2,17 +2,24 @@ import React from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { NavButtonComponent } from "../../components/nav.button/nav.button";
 import HeaderComponent from "../../components/header";
-import { faqs } from "../../consts/api_data";
 import DividerComponent from "../../components/divider";
 import { SpanGroup } from "../../components/span.group/span.group";
+import { useDispatch } from "react-redux";
+import { Direction } from "../../type";
+import { setDirection } from "../../store/direction/direction.slice";
 
 export const FAQIncludedPage: React.FC = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleDirection = (direction: Direction) => {
+    dispatch(setDirection(direction));
+  };
 
   return (
     <>
       <HeaderComponent>
-        <Link to="/faq">
+        <Link to="/faq/main" onClick={() => handleDirection(-1)}>
           <img src={`${process.env.PUBLIC_URL}/assets/images/left_green.png`} />
         </Link>
         <div className="flex flex-col text-darkgreen text-[29px] text-center font-bold leading-[24.16px]">
