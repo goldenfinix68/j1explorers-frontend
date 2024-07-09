@@ -2,8 +2,7 @@ import React from "react";
 import { RecordComponent } from "../../components/record.component";
 import DividerComponent from "../../components/divider";
 import HeaderComponent from "../../components/header";
-import { Link, useNavigate } from "react-router-dom";
-import { useFetchMeQuery } from "../../service/userService";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { packMembersKeyMap, profileKeyMap } from "./keyMap";
 import { formatDate } from "../../utils/processDate";
 import { processString } from "../../utils/processString";
@@ -11,13 +10,18 @@ import { useFetchPackMembersQuery } from "../../service/tourService";
 import { Direction } from "../../type";
 import { useDispatch } from "react-redux";
 import { setDirection } from "../../store/direction/direction.slice";
+import { useAuth } from "../../containers/auth.provider/auth.provider";
 
 const ProfilePage: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { data, error, isLoading } = useFetchMeQuery();
+  const { user } = useAuth();
   const { data: packMembers } = useFetchPackMembersQuery();
+
+  if (!user) {
+    return <Navigate to="login" />;
+  }
 
   const handleDirection = (direction: Direction) => {
     dispatch(setDirection(direction));
@@ -27,16 +31,6 @@ const ProfilePage: React.FC = () => {
     handleDirection(1);
     navigate(link);
   };
-
-  if (!data) {
-    if (isLoading) {
-      return <div>Loading...</div>;
-    }
-    if (error) {
-      return <div>Error Occured</div>;
-    }
-    return <div></div>;
-  }
 
   return (
     <>
@@ -59,8 +53,8 @@ const ProfilePage: React.FC = () => {
               label={label}
               description={
                 key.endsWith("date")
-                  ? formatDate(data[key], ["day", "month", "year"], "long")
-                  : processString(data[key])
+                  ? formatDate(user[key], ["day", "month", "year"], "long")
+                  : processString(user[key])
               }
               label_style="text-secondary"
               description_style="text-darkyellow"

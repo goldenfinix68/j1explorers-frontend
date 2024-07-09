@@ -7,21 +7,21 @@ import { Tour } from "../../store/tour/tour.type";
 import { tourSelector } from "../../store/tour/tour.selector";
 import { formatDate } from "../../utils/processDate";
 import { HeaderComponentProps } from "./type";
-import { useFetchMeQuery } from "../../service/userService";
+import { useAuth } from "../../containers/auth.provider/auth.provider";
 
 export const HeaderComponent: React.FC<HeaderComponentProps> = ({
   children,
   isVisible = true,
 }) => {
   const { period, route }: Tour = useSelector(tourSelector);
-  const { data, error, isLoading } = useFetchMeQuery();
+  const { user } = useAuth();
 
   return (
     <div className="mt-5 mb-2 mx-3">
       <div className="flex justify-between items-center mb-2">
         {children}
         <div className="text-primary text-[24.16px] font-light leading-none">
-          {data?.fullname.split(" ").map((val) => (
+          {user?.fullname.split(" ").map((val) => (
             <div key={val}>{val}</div>
           ))}
         </div>

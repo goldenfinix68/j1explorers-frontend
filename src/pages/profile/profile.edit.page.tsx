@@ -7,18 +7,16 @@ import { Direction, RecordDetail, UserDetail } from "../../type";
 import DividerComponent from "../../components/divider";
 import HeaderComponent from "../../components/header";
 import { Link } from "react-router-dom";
-import {
-  useFetchMeQuery,
-  useUpdateProfileMutation,
-} from "../../service/userService";
+import { useUpdateProfileMutation } from "../../service/userService";
 import { profileKeyMap } from "./keyMap";
 import { processString } from "../../utils/processString";
 import { useDispatch } from "react-redux";
 import { setDirection } from "../../store/direction/direction.slice";
+import { useAuth } from "../../containers/auth.provider/auth.provider";
 
 const ProfileEditPage: React.FC = () => {
   const dispatch = useDispatch();
-  const { data: user, error, isLoading } = useFetchMeQuery();
+  const { user } = useAuth();
   const [updateProfile, { isLoading: isUpdating }] = useUpdateProfileMutation();
 
   const handleDirection = (direction: Direction) => {
