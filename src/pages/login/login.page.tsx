@@ -28,7 +28,8 @@ export const LoginPage: React.FC = () => {
     if (data) {
       localStorage.setItem("token", data?.token || "");
       navigate("/");
-    } else {
+    }
+    if (error) {
       alert("Invalid Username Or Password!");
     }
   }, [data, error]);
