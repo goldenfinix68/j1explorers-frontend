@@ -88,6 +88,7 @@ export interface Credentials {
 
 export interface LoginResponse {
   token: string;
+  user: UserResponse;
 }
 
 export interface PasswordUpdate {

@@ -7,11 +7,17 @@ import React, {
   useEffect,
 } from "react";
 import { useFetchMeQuery } from "../../service/userService";
-import { UserDetail, UserResponse } from "../../type";
+import {
+  LoginResponse,
+  UserDetail,
+  UserEssential,
+  UserResponse,
+} from "../../type";
 
 interface AuthContextType {
   user: UserResponse | null;
-  login: (token: string) => void;
+  login: (data: LoginResponse) => void;
+  updateUser: (data: UserResponse) => void;
   logout: () => void;
 }
 
@@ -31,14 +37,15 @@ interface AuthProviderProps {
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [user, setUser] = useState<UserResponse | null>(null);
-  const [token, setToken] = useState<string>(
-    localStorage.getItem("token") || ""
-  );
   const { data, isLoading, error } = useFetchMeQuery();
 
-  const login = (token: string) => {
-    localStorage.setItem("token", token);
-    setToken(token);
+  const login = (data: LoginResponse) => {
+    setUser(data.user);
+    localStorage.setItem("token", data.token);
+  };
+
+  const updateUser = (data: UserResponse) => {
+    setUser(data);
   };
 
   const logout = () => {
@@ -50,10 +57,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     if (data) {
       setUser(data);
     }
+    if (error) {
+      logout();
+    }
   }, [data]);
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, updateUser, logout }}>
       {children}
     </AuthContext.Provider>
   );
