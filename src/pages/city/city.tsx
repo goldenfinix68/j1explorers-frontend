@@ -9,22 +9,34 @@ import {
   CONTACT_TYPES,
 } from "../../consts";
 import { isValidCity } from "../../utils/validator";
-import { CityParams } from "../../type";
+import { CityParams, Direction } from "../../type";
+import { useDispatch } from "react-redux";
+import { setDirection } from "../../store/direction/direction.slice";
 
 export const CityPage: React.FC = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { city } = useParams<CityParams>();
 
   if (!isValidCity(city)) {
     return <div>Invalid city</div>;
   }
 
+  const handleDirection = (direction: Direction) => {
+    dispatch(setDirection(direction));
+  };
+
+  const handleNavigation = (link: string) => {
+    handleDirection(1);
+    navigate(link);
+  };
+
   const contactURL = CITY_CONTACTS[city];
 
   return (
     <>
       <HeaderComponent>
-        <Link to="/contact">
+        <Link to="/contact" onClick={() => handleDirection(-1)}>
           <img src={`${process.env.PUBLIC_URL}/assets/images/left_green.png`} />
         </Link>
         <div className="flex flex-col text-secondary text-[29px] text-center font-bold leading-[24.16px]">
@@ -41,7 +53,7 @@ export const CityPage: React.FC = () => {
                 : `${CITIES[city]} ${CONTACT_TYPES[contact]}`
             }
             className={`text-[23.71px] ${BUTTON_COLORS[city]} mt-[45px] mb-1 py-[11px]`}
-            onClick={() => navigate(contact)}
+            onClick={() => handleNavigation(contact)}
           />
         ))}
       </div>

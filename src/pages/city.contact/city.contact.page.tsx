@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { CityContactParams, CityParams } from "../../type";
+import { CityContactParams, CityParams, Direction } from "../../type";
 import { isValidCity, isValidContact } from "../../utils/validator";
 import HeaderComponent from "../../components/header";
 import {
@@ -14,18 +14,25 @@ import {
 import DividerComponent from "../../components/divider";
 import NavButtonComponent from "../../components/nav.button";
 import ContactDetailComponent from "../../components/contact.detail";
+import { useDispatch } from "react-redux";
+import { setDirection } from "../../store/direction/direction.slice";
 
 export const CityContactPage: React.FC = () => {
   const { city, contact_type } = useParams<CityContactParams>();
+  const dispatch = useDispatch();
 
   if (!isValidCity(city) || !isValidContact(contact_type)) {
     return <div>Invalid City</div>;
   }
 
+  const handleDirection = (direction: Direction) => {
+    dispatch(setDirection(direction));
+  };
+
   return (
     <>
       <HeaderComponent>
-        <Link to={`/contact/${city}`}>
+        <Link to={`/contact/${city}`} onClick={() => handleDirection(-1)}>
           <img src={`${process.env.PUBLIC_URL}/assets/images/left_green.png`} />
         </Link>
         <div
