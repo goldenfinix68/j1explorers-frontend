@@ -16,7 +16,7 @@ import { useAuth } from "../../containers/auth.provider/auth.provider";
 
 const ProfileEditPage: React.FC = () => {
   const dispatch = useDispatch();
-  const { user } = useAuth();
+  const { user, updateUser } = useAuth();
   const [updateProfile, { isLoading: isUpdating }] = useUpdateProfileMutation();
 
   const handleDirection = (direction: Direction) => {
@@ -45,7 +45,9 @@ const ProfileEditPage: React.FC = () => {
 
   const handleSubmit = async () => {
     try {
-      await updateProfile(profile).unwrap();
+      const user = await updateProfile(profile).unwrap();
+
+      updateUser(user);
     } catch (err) {
       console.log(err);
     }

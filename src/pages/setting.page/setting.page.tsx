@@ -22,7 +22,7 @@ import { useAuth } from "../../containers/auth.provider/auth.provider";
 
 const SettingsPage: React.FC = () => {
   const dispatch = useDispatch();
-  const { user } = useAuth();
+  const { user, updateUser } = useAuth();
   const [updateProfile, { isLoading: isUpdating }] = useUpdateProfileMutation();
   const [changePassword] = useChangePasswordMutation();
   const [username, setUsername] = useState<string>(user?.username || "");
@@ -36,7 +36,9 @@ const SettingsPage: React.FC = () => {
 
   const handleSubmit = async () => {
     try {
-      await updateProfile({ username }).unwrap();
+      const user = await updateProfile({ username }).unwrap();
+
+      updateUser(user);
     } catch (err) {
       console.log(err);
     }

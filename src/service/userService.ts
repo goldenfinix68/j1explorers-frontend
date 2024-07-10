@@ -30,14 +30,14 @@ export const userApi = createApi({
     fetchMe: builder.query<UserResponse, void>({
       query: () => `/me`,
     }),
-    updateProfile: builder.mutation<string, UserDetail>({
+    updateProfile: builder.mutation<UserResponse, UserDetail>({
       query: (profile) => ({
         url: `/me/update`,
         method: `PUT`,
         body: profile,
       }),
     }),
-    changePassword: builder.mutation<PasswordUpdate, APIResult>({
+    changePassword: builder.mutation<APIResult, PasswordUpdate>({
       query: (passwordUpdate) => ({
         url: `/me/changePassword`,
         method: `PUT`,

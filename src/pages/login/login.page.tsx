@@ -9,7 +9,7 @@ import { useAuth } from "../../containers/auth.provider/auth.provider";
 
 export const LoginPage: React.FC = () => {
   const navigate = useNavigate();
-  const { login: setToken } = useAuth();
+  const { login: setUser } = useAuth();
 
   const [credentials, setCredentials] = useState<Credentials>({
     username: "",
@@ -28,7 +28,7 @@ export const LoginPage: React.FC = () => {
 
   useEffect(() => {
     if (data) {
-      setToken(data.token);
+      setUser(data);
       navigate("/");
     }
     if (error) {
