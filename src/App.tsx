@@ -25,6 +25,7 @@ import { useSelector } from "react-redux";
 import LoginPage from "./pages/login";
 import FAQMainPage from "./pages/faq.main";
 import { SettingsPage } from "./pages/setting.page";
+import LogoutPage from "./pages/logout";
 
 const App: React.FC = () => {
   const location = useLocation();
@@ -202,6 +203,7 @@ const App: React.FC = () => {
             </PageWrapper>
           }
         />
+        <Route path="/logout" element={<LogoutPage />} />
       </Routes>
     </AnimatePresence>
   );
