@@ -2,24 +2,30 @@ import React from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { NavButtonComponent } from "../../components/nav.button/nav.button";
 import HeaderComponent from "../../components/header";
-import { AppDetailParams } from "../../type";
+import { AppDetailParams, Direction } from "../../type";
 import { isValidApps } from "../../utils/validator";
 import { APP_TYPES } from "../../consts";
 import DividerComponent from "../../components/divider";
+import { useDispatch } from "react-redux";
+import { setDirection } from "../../store/direction/direction.slice";
 
 export const AppDetailPage: React.FC = () => {
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   const { apps } = useParams<AppDetailParams>();
 
   if (!isValidApps(apps)) {
     return <div>Invalid Apps</div>;
   }
 
+  const handleDirection = (direction: Direction) => {
+    dispatch(setDirection(direction));
+  };
+
   return (
     <>
       <HeaderComponent>
-        <Link to="/recommend">
+        <Link to="/recommend" onClick={() => handleDirection(-1)}>
           <img src={`${process.env.PUBLIC_URL}/assets/images/left_green.png`} />
         </Link>
         <div className="flex flex-col text-secondary text-[29px] text-center font-bold leading-none">
