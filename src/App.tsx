@@ -24,6 +24,7 @@ import { directionSelector } from "./store/direction/direction.selector";
 import { useSelector } from "react-redux";
 import LoginPage from "./pages/login";
 import FAQMainPage from "./pages/faq.main";
+import { SettingsPage } from "./pages/setting.page";
 
 const App: React.FC = () => {
   const location = useLocation();
@@ -190,6 +191,14 @@ const App: React.FC = () => {
           element={
             <PageWrapper direction={direction}>
               <AppDetailPage />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/setting"
+          element={
+            <PageWrapper direction={direction}>
+              <SettingsPage />
             </PageWrapper>
           }
         />
