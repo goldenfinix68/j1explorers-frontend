@@ -1,25 +1,12 @@
 import React from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import HeaderComponent from "../../components/header";
 import DividerComponent from "../../components/divider";
 import { CONTENT_COLORS, TITLE_COLORS, cities } from "../../consts";
 import { schedules } from "../../consts/schedules_data";
-import {
-  ScheduleDetailParams,
-  ScheduleTitle,
-  Location,
-  Direction,
-} from "../../type";
-import {
-  isValidDayScheduleIndex,
-  isValidScheduleIndex,
-} from "../../utils/validator";
-import {
-  getFirstOfPair,
-  getSecondOfPair,
-  isPair,
-  processPairString,
-} from "../../utils/common";
+import { ScheduleDetailParams, Direction } from "../../type";
+import { isValidDayScheduleIndex } from "../../utils/validator";
+import { getSecondOfPair } from "../../utils/common";
 import { useDispatch } from "react-redux";
 import { setDirection } from "../../store/direction/direction.slice";
 import { useFetchScheduleQuery } from "../../service/scheduleService";
