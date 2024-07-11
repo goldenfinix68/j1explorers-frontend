@@ -1,4 +1,3 @@
-// AuthContext.tsx
 import React, {
   createContext,
   useContext,
@@ -7,12 +6,8 @@ import React, {
   useEffect,
 } from "react";
 import { useFetchMeQuery } from "../../service/userService";
-import {
-  LoginResponse,
-  UserDetail,
-  UserEssential,
-  UserResponse,
-} from "../../type";
+import { LoginResponse, UserResponse } from "../../type";
+import Cookies from "js-cookie";
 
 interface AuthContextType {
   user: UserResponse | null;
@@ -36,31 +31,38 @@ interface AuthProviderProps {
 }
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-  const [user, setUser] = useState<UserResponse | null>(null);
+  const storedUser = Cookies.get("user");
+  const [user, setUser] = useState<UserResponse | null>(
+    storedUser ? JSON.parse(storedUser) : null
+  );
   const { data, isLoading, error } = useFetchMeQuery();
 
   const login = (data: LoginResponse) => {
     setUser(data.user);
+    Cookies.set("user", JSON.stringify(data.user));
     localStorage.setItem("token", data.token);
   };
 
   const updateUser = (data: UserResponse) => {
     setUser(data);
+    Cookies.set("user", JSON.stringify(data));
   };
 
   const logout = () => {
     setUser(null);
+    Cookies.remove("user");
     localStorage.removeItem("token");
   };
 
   useEffect(() => {
     if (data) {
       setUser(data);
+      Cookies.set("user", JSON.stringify(data));
     }
     if (error) {
       logout();
     }
-  }, [data]);
+  }, [data, error]);
 
   return (
     <AuthContext.Provider value={{ user, login, updateUser, logout }}>

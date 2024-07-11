@@ -23,18 +23,11 @@ export const LoginPage: React.FC = () => {
   };
 
   const onSubmit = async () => {
-    await login(credentials);
-  };
+    const data = await login(credentials).unwrap();
 
-  useEffect(() => {
-    if (data) {
-      setUser(data);
-      navigate("/");
-    }
-    if (error) {
-      alert("Invalid Username Or Password!");
-    }
-  }, [data, error]);
+    setUser(data);
+    navigate("/");
+  };
 
   return (
     <div className="w-full">
