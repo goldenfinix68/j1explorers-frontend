@@ -1,20 +1,40 @@
-import React from "react";
-import { User } from "../../store/user/user.type";
-import { useSelector } from "react-redux";
-import { userSelector } from "../../store/user/user.selector";
+import React, { useEffect, useState } from "react";
 import "./header.component.css";
-import { Tour } from "../../store/tour/tour.type";
-import { tourSelector } from "../../store/tour/tour.selector";
-import { formatDate } from "../../utils/processDate";
 import { HeaderComponentProps } from "./type";
 import { useAuth } from "../../containers/auth.provider/auth.provider";
+import { useFetchTourQuery } from "../../service/tourService";
+import { Location } from "../../type";
+import { CITIES } from "../../consts";
+import { ADDITION_DAYS_TYPE } from "../../consts/tourType";
 
 export const HeaderComponent: React.FC<HeaderComponentProps> = ({
   children,
   isVisible = true,
 }) => {
-  const { period, route }: Tour = useSelector(tourSelector);
   const { user } = useAuth();
+  const { data } = useFetchTourQuery();
+
+  const [from, setFrom] = useState<Location>("la");
+  const [to, setTo] = useState<Location>("nyc");
+
+  const [startDay, setStartDay] = useState<number>(3);
+  const [endDay, setEndDay] = useState<number>(9);
+
+  useEffect(() => {
+    if (data) {
+      if (data.type) {
+        setFrom("la");
+        setTo("nyc");
+      } else {
+        setFrom("nyc");
+        setTo("la");
+      }
+
+      const { start, end } = ADDITION_DAYS_TYPE[data.addition_days_type];
+      setStartDay(startDay - start);
+      setEndDay(endDay + end);
+    }
+  }, [data]);
 
   return (
     <div className="mt-5 mb-2 mx-3">
@@ -28,18 +48,18 @@ export const HeaderComponent: React.FC<HeaderComponentProps> = ({
       </div>
       {isVisible ? (
         <div className="flex justify-center text-[14.58px] font-bold">
-          <div className="text-primary">
+          <div className={data?.type ? "text-primary" : "text-secondary"}>
             start In&nbsp;
-            {route.from}
-            &nbsp;
-            {formatDate(period.from, ["month", "day"], "short")}
+            {CITIES[from]}
+            &nbsp; Sep&nbsp;
+            {startDay}
           </div>
           <div className="text-darkyellow">&nbsp;|&nbsp;</div>
-          <div className="text-secondary">
+          <div className={data?.type ? "text-secondary" : "text-primary"}>
             end In&nbsp;
-            {route.to}
-            &nbsp;
-            {formatDate(period.to, ["month", "day"], "short")}
+            {CITIES[to]}
+            &nbsp; Sep&nbsp;
+            {endDay}
           </div>
         </div>
       ) : (
