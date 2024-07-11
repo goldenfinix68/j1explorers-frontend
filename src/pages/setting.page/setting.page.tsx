@@ -46,7 +46,7 @@ const SettingsPage: React.FC = () => {
 
   const handlePassword = async () => {
     try {
-      if (newPassword != confirmPassword) {
+      if (newPassword !== confirmPassword) {
         alert("Confirm Password does not match.");
         return;
       }
@@ -93,6 +93,7 @@ const SettingsPage: React.FC = () => {
         <div className="mt-6">
           <input
             required
+            type="password"
             placeholder="Current password"
             className="border border-darkyellow text-center outline-secondary placeholder-secondary mb-3"
             value={oldPassword}
@@ -100,6 +101,7 @@ const SettingsPage: React.FC = () => {
           />
           <input
             required
+            type="password"
             placeholder="New password"
             className="border border-darkyellow text-center mb-3"
             value={newPassword}
@@ -107,6 +109,7 @@ const SettingsPage: React.FC = () => {
           />
           <input
             required
+            type="password"
             placeholder="Confirm password"
             className="border border-darkyellow text-center mb-3"
             value={confirmPassword}
@@ -115,7 +118,7 @@ const SettingsPage: React.FC = () => {
           <div className="w-full flex">
             <button
               className="bg-darkgreen border-[3px] border-primary rounded-xl px-[22px] py-2 text-white text-[24.16px] leading-none font-light mt-6 mr-5 ml-auto"
-              onSubmit={() => handlePassword()}
+              onClick={() => handlePassword()}
             >
               Save
             </button>
