@@ -1,6 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-import userReducer from "./user";
-import tourReducer from "./tour";
 import directionReducer from "./direction";
 import { categoryApi } from "../service/categoryService";
 import { faqApi } from "../service/faqService";
@@ -10,8 +8,6 @@ import { scheduleApi } from "../service/scheduleService";
 
 const store = configureStore({
   reducer: {
-    user: userReducer,
-    tour: tourReducer,
     direction: directionReducer,
     [userApi.reducerPath]: userApi.reducer,
     [categoryApi.reducerPath]: categoryApi.reducer,
