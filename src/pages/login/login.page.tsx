@@ -61,7 +61,14 @@ export const LoginPage: React.FC = () => {
             onChange={(e) => handleChange("password", e.target.value)}
           />
         </div>
-        <button onClick={() => onSubmit()}>Login</button>
+      </div>
+      <div className="mx-3">
+        <button
+          className="bg-primary border-[3px] border-darkgreen rounded-2xl w-full text-[33.33px] text-white py-[14px] mt-6"
+          onClick={() => onSubmit()}
+        >
+          Login
+        </button>
       </div>
     </div>
   );
