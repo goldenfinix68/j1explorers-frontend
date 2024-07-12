@@ -1,0 +1,75 @@
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 100px; /* Increase width to accommodate longer text */
+  height: 50px; /* Height remains the same */
+}
+
+.toggle-switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+  border-radius: 50px; /* Maintain rounded corners */
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 40px; /* Adjust height */
+  width: 40px; /* Adjust width to ensure proper toggle handle size */
+  left: 5px; /* Adjust left position */
+  bottom: 5px; /* Adjust bottom position */
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider:before {
+  background-color: #279a45;
+  transform: translateX(50px);
+}
+
+input:not(:checked) + .slider:before {
+  background-color: #ff991f;
+}
+
+.toggle-on,
+.toggle-off {
+  position: absolute;
+  width: 60%;
+  text-align: center;
+  font-weight: bold;
+  line-height: 50px; /* Match line height to overall switch height */
+  transition: opacity 0.4s; /* Add transition for smooth hide/show */
+}
+
+.toggle-on {
+  left: 0;
+}
+
+.toggle-off {
+  right: 0;
+}
+
+input:checked + label .toggle-off {
+  opacity: 0;
+}
+
+input:not(:checked) + label .toggle-off {
+  opacity: 1;
+}
+
+input:checked + label .toggle-on {
+  opacity: 1;
+}
+
+input:not(:checked) + label .toggle-on {
+  opacity: 0;
+}
