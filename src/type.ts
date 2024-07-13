@@ -180,3 +180,7 @@ export type SchedulesResponse = Schedule[];
 export interface APIResult {
   result: string;
 }
+
+export interface Fingerprint {
+  fingerprint: string | null;
+}
