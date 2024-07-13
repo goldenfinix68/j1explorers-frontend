@@ -30,6 +30,9 @@ export const userApi = createApi({
     fetchMe: builder.query<UserResponse, void>({
       query: () => `/me`,
     }),
+    isAllowedBiometrics: builder.query<APIResult, void>({
+      query: () => `/fingerprint`,
+    }),
     updateProfile: builder.mutation<UserResponse, UserDetail>({
       query: (profile) => ({
         url: `/me/update`,
@@ -49,6 +52,7 @@ export const userApi = createApi({
 
 export const {
   useFetchMeQuery,
+  useIsAllowedBiometricsQuery,
   useUpdateProfileMutation,
   useLoginMutation,
   useChangePasswordMutation,
