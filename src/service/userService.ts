@@ -7,6 +7,7 @@ import {
   Credentials,
   PasswordUpdate,
   APIResult,
+  Fingerprint,
 } from "../type";
 
 export const userApi = createApi({
@@ -40,6 +41,13 @@ export const userApi = createApi({
         body: profile,
       }),
     }),
+    updateFingerprint: builder.mutation<APIResult, Fingerprint>({
+      query: (fingerprint) => ({
+        url: `/me/fingerprint/update`,
+        method: `PUT`,
+        body: fingerprint,
+      }),
+    }),
     changePassword: builder.mutation<APIResult, PasswordUpdate>({
       query: (passwordUpdate) => ({
         url: `/me/changePassword`,
@@ -56,4 +64,5 @@ export const {
   useUpdateProfileMutation,
   useLoginMutation,
   useChangePasswordMutation,
+  useUpdateFingerprintMutation,
 } = userApi;
