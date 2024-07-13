@@ -6,10 +6,13 @@ import { Credentials, Direction } from "../../type";
 import { setDirection } from "../../store/direction/direction.slice";
 import { useLoginMutation } from "../../service/userService";
 import { useAuth } from "../../containers/auth.provider/auth.provider";
+import { FingerprintLoad } from "../../components/fingerprint.load";
 
 export const LoginPage: React.FC = () => {
   const navigate = useNavigate();
   const { login: setUser } = useAuth();
+
+  const [fingerprint, setFingerprint] = useState<string>("");
 
   const [credentials, setCredentials] = useState<Credentials>({
     username: "",
@@ -63,6 +66,10 @@ export const LoginPage: React.FC = () => {
           Login
         </button>
       </div>
+      <FingerprintLoad
+        setFingerprint={(fingerprint) => setFingerprint(fingerprint)}
+        className="w-20 mx-auto mt-10 mb-4"
+      />
     </div>
   );
 };
