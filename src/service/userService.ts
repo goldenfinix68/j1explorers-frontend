@@ -28,6 +28,13 @@ export const userApi = createApi({
         body: credential,
       }),
     }),
+    loginByFingerprint: builder.mutation<LoginResponse, Fingerprint>({
+      query: (fingerprint) => ({
+        url: "/fingerprint/login",
+        method: "POST",
+        body: fingerprint,
+      }),
+    }),
     fetchMe: builder.query<UserResponse, void>({
       query: () => `/me`,
     }),
@@ -63,6 +70,7 @@ export const {
   useIsAllowedBiometricsQuery,
   useUpdateProfileMutation,
   useLoginMutation,
+  useLoginByFingerprintMutation,
   useChangePasswordMutation,
   useUpdateFingerprintMutation,
 } = userApi;

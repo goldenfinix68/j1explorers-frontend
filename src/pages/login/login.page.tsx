@@ -4,7 +4,10 @@ import { NavButtonComponent } from "../../components/nav.button/nav.button";
 import { useDispatch } from "react-redux";
 import { Credentials, Direction } from "../../type";
 import { setDirection } from "../../store/direction/direction.slice";
-import { useLoginMutation } from "../../service/userService";
+import {
+  useLoginByFingerprintMutation,
+  useLoginMutation,
+} from "../../service/userService";
 import { useAuth } from "../../containers/auth.provider/auth.provider";
 import { FingerprintLoad } from "../../components/fingerprint.load";
 
@@ -20,9 +23,21 @@ export const LoginPage: React.FC = () => {
   });
 
   const [login, { isLoading, data, error }] = useLoginMutation();
+  const [loginByFingerprint] = useLoginByFingerprintMutation();
 
   const handleChange = (name: string, value: string) => {
     setCredentials({ ...credentials, [name]: value });
+  };
+
+  const handleFingerprint = async (fingerprint: string) => {
+    try {
+      const data = await loginByFingerprint({ fingerprint }).unwrap();
+
+      setUser(data);
+      navigate("/");
+    } catch (err) {
+      alert("Can't find the fingerprint.");
+    }
   };
 
   const onSubmit = async () => {
@@ -67,7 +82,7 @@ export const LoginPage: React.FC = () => {
         </button>
       </div>
       <FingerprintLoad
-        setFingerprint={(fingerprint) => setFingerprint(fingerprint)}
+        setFingerprint={(fingerprint) => handleFingerprint(fingerprint)}
         className="w-20 mx-auto mt-10 mb-4"
       />
     </div>
