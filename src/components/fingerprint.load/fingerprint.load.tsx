@@ -12,8 +12,11 @@ export const FingerprintLoad: React.FC<FingerprintLoadProps> = ({
 }) => {
   useEffect(() => {
     const loadFingerprint = async () => {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
       const fp = await FingerprintJS.load();
       const result = await fp.get();
+
       setFingerprint(result.visitorId);
     };
 
