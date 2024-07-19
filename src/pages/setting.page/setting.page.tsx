@@ -14,7 +14,6 @@ import { setDirection } from "../../store/direction/direction.slice";
 import { useAuth } from "../../containers/auth.provider/auth.provider";
 import { Switch } from "../../components/switch";
 import { PortalModal } from "../../containers/portal.modal";
-import { FingerprintLoad } from "../../components/fingerprint.load";
 import { FingerprintLoadModal } from "../../containers/fingerprint.load.modal";
 
 const SettingsPage: React.FC = () => {
@@ -31,7 +30,6 @@ const SettingsPage: React.FC = () => {
   const [oldPassword, setOldPassword] = useState<string>("");
   const [newPassword, setNewPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
-  const [fingerprint, setFingerprint] = useState<string>("");
 
   const [onShowModal, setOnShowModal] = useState<boolean>(false);
   const [onEditUserName, setOnEditUserName] = useState<boolean>(false);
