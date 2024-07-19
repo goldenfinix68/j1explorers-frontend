@@ -5,12 +5,18 @@ import DividerComponent from "../../components/divider";
 import HeaderComponent from "../../components/header";
 import { useDispatch } from "react-redux";
 import { setDirection } from "../../store/direction/direction.slice";
+import NavButtonComponent from "../../components/nav.button";
 
 export const TourDetailEditPage: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleDirection = (direction: Direction) => {
     dispatch(setDirection(direction));
+  };
+
+  const handleNavigation = (link: string) => {
+    handleDirection(1);
+    navigate(link);
   };
 
   return (
@@ -20,15 +26,20 @@ export const TourDetailEditPage: React.FC = () => {
           <img src={`${process.env.PUBLIC_URL}/assets/images/left_green.png`} />
         </Link>
         <div className="flex flex-col text-secondary text-[29px] text-center leading-[24.16px]">
-          <span>Your Tour</span>
-          <span>Details</span>
+          <span>Contact</span>
+          <span>J1Explorers</span>
         </div>
       </HeaderComponent>
       <DividerComponent />
       <div className="mt-6">
         <div className="text-center text-[25px] text-secondary">
-          Contact J1Explorers
+          You have to contact J1Explorers to edit your tour details
         </div>
+        <NavButtonComponent
+          title="Contact Page"
+          className={`bg-primary border-darkgreen text-[33.33px] mt-3 font-light mb-4 py-[11px]`}
+          onClick={() => handleNavigation("/j1explorers-contact")}
+        />
       </div>
     </div>
   );
