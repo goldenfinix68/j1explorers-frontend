@@ -139,9 +139,7 @@ export const TourDetailPage: React.FC = () => {
       <div>
         <div className="text-center text-[25px] text-secondary">Additions</div>
         <div>
-          <div className="text-center text-[19.08px]  text-secondary">
-            Tours
-          </div>
+          <div className="text-center text-[19.08px] text-secondary">Tours</div>
           {additionalTour.map(
             ({ title, description, description_style = "text-darkyellow" }) => (
               <RecordComponent
@@ -173,7 +171,7 @@ export const TourDetailPage: React.FC = () => {
       </div>
       <div className="w-full flex">
         <button
-          className="bg-darkgreen border[3px] border-primary rounded-xl px-[22px] py-2 text-white text-[24.16px] leading-none font-light mt-6 mr-5 ml-auto"
+          className="bg-darkgreen border-[3px] border-primary rounded-xl px-[22px] py-2 text-white text-[24.16px] leading-none font-light mt-6 mr-5 ml-auto"
           onClick={() => navigate("edit")}
         >
           Edit
