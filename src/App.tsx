@@ -26,6 +26,7 @@ import LoginPage from "./pages/login";
 import FAQMainPage from "./pages/faq.main";
 import { SettingsPage } from "./pages/setting.page";
 import LogoutPage from "./pages/logout";
+import J1ExplorersContactPage from "./pages/j1explorers.contact";
 
 const App: React.FC = () => {
   const location = useLocation();
@@ -128,6 +129,14 @@ const App: React.FC = () => {
           element={
             <PageWrapper direction={direction}>
               <RecommendPage />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/j1explorers-contact"
+          element={
+            <PageWrapper direction={direction}>
+              <J1ExplorersContactPage />
             </PageWrapper>
           }
         />

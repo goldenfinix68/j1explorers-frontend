@@ -34,6 +34,11 @@ export const ContactPage: React.FC = () => {
         </div>
       </HeaderComponent>
       <div className="mx-3 text-[11.67px] mt-[18px] font-light">
+        <NavButtonComponent
+          title="J1Explorers"
+          className="bg-darkgreen border-primary  text-[23.71px] mt-10 mb-1 py-[11px]"
+          onClick={() => handleNavigation("/j1explorers-contact")}
+        />
         {cities.map((city) => (
           <NavButtonComponent
             title={`${CITIES[city]} Contacts/Links`}
