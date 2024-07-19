@@ -58,18 +58,7 @@ const PageTransition: React.FC<PageTransitionProps> = ({
   children,
   direction,
 }) => {
-  return (
-    <motion.div
-      custom={direction}
-      variants={variants}
-      initial="enter"
-      animate="center"
-      exit="exit"
-      transition={{ type: "spring", stiffness: 300, damping: 30 }}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className="page">{children}</div>;
 };
 
 export default PageTransition;
