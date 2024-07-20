@@ -27,194 +27,199 @@ import FAQMainPage from "./pages/faq.main";
 import { SettingsPage } from "./pages/setting.page";
 import LogoutPage from "./pages/logout";
 import J1ExplorersContactPage from "./pages/j1explorers.contact";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App: React.FC = () => {
   const location = useLocation();
   const direction = useSelector(directionSelector);
 
   return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/login" element={<LoginPage />} />
-        <Route
-          path="/"
-          element={
-            <PageWrapper direction={direction}>
-              <HomePage />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/tour-detail"
-          element={
-            <PageWrapper direction={direction}>
-              <TourDetailPage />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/tour-detail/edit"
-          element={
-            <PageWrapper direction={direction}>
-              <TourDetailEditPage />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/profile"
-          element={
-            <PageWrapper direction={direction}>
-              <ProfilePage />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/profile/edit"
-          element={
-            <PageWrapper direction={direction}>
-              <ProfileEditPage />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/schedule"
-          element={
-            <PageWrapper direction={direction}>
-              <SchedulePage />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/schedule/:day_index"
-          element={
-            <PageWrapper direction={direction}>
-              <DaySchedulePage />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/schedule/:day_index/:schedule_index"
-          element={
-            <PageWrapper direction={direction}>
-              <ScheduleDetailPage />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/contact"
-          element={
-            <PageWrapper direction={direction}>
-              <ContactPage />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/contact/:city"
-          element={
-            <PageWrapper direction={direction}>
-              <CityPage />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/contact/:city/:contact_type"
-          element={
-            <PageWrapper direction={direction}>
-              <CityContactPage />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/recommend"
-          element={
-            <PageWrapper direction={direction}>
-              <RecommendPage />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/j1explorers-contact"
-          element={
-            <PageWrapper direction={direction}>
-              <J1ExplorersContactPage />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/j1e"
-          element={
-            <PageWrapper direction={direction}>
-              <J1EPage />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/faq"
-          element={
-            <PageWrapper direction={direction}>
-              <FAQPage />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/faq/main"
-          element={
-            <PageWrapper direction={direction}>
-              <FAQMainPage />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/faq/main/0"
-          element={
-            <PageWrapper direction={direction}>
-              <FAQIncludedPage />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/faq/:category"
-          element={
-            <PageWrapper direction={direction}>
-              <FAQCategoryPage />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/faq/:category/:question"
-          element={
-            <PageWrapper direction={direction}>
-              <FAQAnswerPage />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/terms"
-          element={
-            <PageWrapper direction={direction}>
-              <TermsPage />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/recommend/:apps"
-          element={
-            <PageWrapper direction={direction}>
-              <AppDetailPage />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/setting"
-          element={
-            <PageWrapper direction={direction}>
-              <SettingsPage />
-            </PageWrapper>
-          }
-        />
-        <Route path="/logout" element={<LogoutPage />} />
-      </Routes>
-    </AnimatePresence>
+    <div>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/login" element={<LoginPage />} />
+          <Route
+            path="/"
+            element={
+              <PageWrapper direction={direction}>
+                <HomePage />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/tour-detail"
+            element={
+              <PageWrapper direction={direction}>
+                <TourDetailPage />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/tour-detail/edit"
+            element={
+              <PageWrapper direction={direction}>
+                <TourDetailEditPage />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <PageWrapper direction={direction}>
+                <ProfilePage />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/profile/edit"
+            element={
+              <PageWrapper direction={direction}>
+                <ProfileEditPage />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/schedule"
+            element={
+              <PageWrapper direction={direction}>
+                <SchedulePage />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/schedule/:day_index"
+            element={
+              <PageWrapper direction={direction}>
+                <DaySchedulePage />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/schedule/:day_index/:schedule_index"
+            element={
+              <PageWrapper direction={direction}>
+                <ScheduleDetailPage />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <PageWrapper direction={direction}>
+                <ContactPage />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/contact/:city"
+            element={
+              <PageWrapper direction={direction}>
+                <CityPage />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/contact/:city/:contact_type"
+            element={
+              <PageWrapper direction={direction}>
+                <CityContactPage />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/recommend"
+            element={
+              <PageWrapper direction={direction}>
+                <RecommendPage />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/j1explorers-contact"
+            element={
+              <PageWrapper direction={direction}>
+                <J1ExplorersContactPage />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/j1e"
+            element={
+              <PageWrapper direction={direction}>
+                <J1EPage />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/faq"
+            element={
+              <PageWrapper direction={direction}>
+                <FAQPage />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/faq/main"
+            element={
+              <PageWrapper direction={direction}>
+                <FAQMainPage />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/faq/main/0"
+            element={
+              <PageWrapper direction={direction}>
+                <FAQIncludedPage />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/faq/:category"
+            element={
+              <PageWrapper direction={direction}>
+                <FAQCategoryPage />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/faq/:category/:question"
+            element={
+              <PageWrapper direction={direction}>
+                <FAQAnswerPage />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/terms"
+            element={
+              <PageWrapper direction={direction}>
+                <TermsPage />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/recommend/:apps"
+            element={
+              <PageWrapper direction={direction}>
+                <AppDetailPage />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/setting"
+            element={
+              <PageWrapper direction={direction}>
+                <SettingsPage />
+              </PageWrapper>
+            }
+          />
+          <Route path="/logout" element={<LogoutPage />} />
+        </Routes>
+      </AnimatePresence>
+      <ToastContainer />
+    </div>
   );
 };
 export default App;
