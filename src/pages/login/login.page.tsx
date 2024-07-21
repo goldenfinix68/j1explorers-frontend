@@ -10,6 +10,7 @@ import {
 } from "../../service/userService";
 import { useAuth } from "../../containers/auth.provider/auth.provider";
 import { FingerprintLoad } from "../../components/fingerprint.load";
+import { notifyError, notifyWarning } from "../../utils/notify";
 
 export const LoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -36,15 +37,19 @@ export const LoginPage: React.FC = () => {
       setUser(data);
       navigate("/");
     } catch (err) {
-      alert("Can't find the fingerprint.");
+      notifyWarning("Can't find fingerprint!");
     }
   };
 
   const onSubmit = async () => {
-    const data = await login(credentials).unwrap();
+    try {
+      const data = await login(credentials).unwrap();
 
-    setUser(data);
-    navigate("/");
+      setUser(data);
+      navigate("/");
+    } catch (err) {
+      notifyError("Username or Password is wrong!");
+    }
   };
 
   return (
