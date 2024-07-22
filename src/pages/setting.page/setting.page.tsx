@@ -15,6 +15,7 @@ import { useAuth } from "../../containers/auth.provider/auth.provider";
 import { Switch } from "../../components/switch";
 import { PortalModal } from "../../containers/portal.modal";
 import { FingerprintLoadModal } from "../../containers/fingerprint.load.modal";
+import { notifyError, notifySuccess, notifyWarning } from "../../utils/notify";
 
 const SettingsPage: React.FC = () => {
   const dispatch = useDispatch();
@@ -56,9 +57,10 @@ const SettingsPage: React.FC = () => {
   const handleFingerprint = async (fingerprint: string) => {
     try {
       await updateFingerprint({ fingerprint }).unwrap();
+      notifySuccess("Fingerprint was successfully updated!");
       setOnShowModal(false);
     } catch (err) {
-      alert("Error occured!");
+      notifyError("Error occured!");
     }
   };
 
@@ -66,18 +68,23 @@ const SettingsPage: React.FC = () => {
     try {
       const user = await updateProfile({ username }).unwrap();
 
-      alert("Successfully changed");
       updateUser(user);
+      notifySuccess("Username was successfully updated!");
       setOnEditUserName(false);
     } catch (err) {
-      console.log(err);
+      notifyError("Error occured!");
     }
   };
 
   const handlePassword = async () => {
     try {
+      if (newPassword === "") {
+        notifyWarning("Please input new password!");
+        return;
+      }
+
       if (newPassword !== confirmPassword) {
-        alert("Confirm Password does not match.");
+        notifyWarning("Confirm Password does not match!");
         return;
       }
       await changePassword({
@@ -85,13 +92,13 @@ const SettingsPage: React.FC = () => {
         new_password: newPassword,
       }).unwrap();
 
-      alert("Successfully changed");
+      notifySuccess("Password was successfully updated!");
 
       setOldPassword("");
       setNewPassword("");
       setConfirmPassword("");
     } catch (err) {
-      console.log(err);
+      notifyError("Error Occured!");
     }
   };
 
