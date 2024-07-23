@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { NavButtonComponent } from "../../components/nav.button/nav.button";
 import { useDispatch } from "react-redux";
 import { Credentials, Direction } from "../../type";
 import { setDirection } from "../../store/direction/direction.slice";
@@ -11,7 +10,14 @@ import {
 import { useAuth } from "../../containers/auth.provider/auth.provider";
 import { FingerprintLoad } from "../../components/fingerprint.load";
 import { notifyError, notifyWarning } from "../../utils/notify";
-import { Button, Container } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  Input,
+  TextField,
+  Typography,
+} from "@mui/material";
 
 export const LoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -26,8 +32,10 @@ export const LoginPage: React.FC = () => {
   const [login, { isLoading, data, error }] = useLoginMutation();
   const [loginByFingerprint] = useLoginByFingerprintMutation();
 
-  const handleChange = (name: string, value: string) => {
-    setCredentials({ ...credentials, [name]: value });
+  const handleEditEvent = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
   const handleDirection = (direction: Direction) => {
@@ -50,12 +58,14 @@ export const LoginPage: React.FC = () => {
     }
   };
 
-  const onSubmit = async () => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
+      event.preventDefault();
+
       const data = await login(credentials).unwrap();
 
       setUser(data);
-      navigate("/");
+      handleNavigation("/");
     } catch (err) {
       notifyError("Username or Password is wrong!");
     }
@@ -63,33 +73,85 @@ export const LoginPage: React.FC = () => {
 
   return (
     <Container maxWidth="sm">
-      <img
-        src={`${process.env.PUBLIC_URL}/assets/images/logo.png`}
-        className="mx-auto mt-9 mb-20 w-3/4"
+      <Box
+        component="img"
+        alt="Logo"
+        src="/assets/images/logo.png"
+        sx={{
+          marginX: "auto",
+          marginTop: "36px",
+          marginBottom: "80px",
+          width: "75%",
+        }}
       />
-      <div className="flex flex-col mx-9 text-center text-secondary">
-        <div className="flex flex-col w-full mb-10">
-          <label className="text-[21.7px]">Username</label>
-          <input
-            type="text"
+
+      <Box component="form" onSubmit={handleSubmit} sx={{ marginX: "12px" }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
+            marginX: "24px",
+            marginBottom: "40px",
+            textAlign: "center",
+          }}
+        >
+          <Typography
+            sx={{
+              color: "#ff991f",
+              fontFamily: "Myriad Pro, sans-serif",
+              fontSize: "21.7px",
+            }}
+          >
+            Username
+          </Typography>
+          <Input
+            value={credentials.username}
+            required
             name="username"
-            className="h-[52px] border-darkyellow border text-darkyellow text-center text-[32.54px]"
-            onChange={(e) => handleChange("username", e.target.value)}
+            onChange={handleEditEvent}
+            sx={{
+              fontFamily: "Myriad Pro, sans-serif",
+              fontSize: "32.54px",
+              color: "#c56600",
+            }}
           />
-        </div>
-        <div className="flex flex-col w-full mb-10">
-          <label className="text-[21.7px]">Password</label>
-          <input
-            type="password"
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
+            marginX: "24px",
+            marginBottom: "40px",
+            textAlign: "center",
+          }}
+        >
+          <Typography
+            sx={{
+              color: "#ff991f",
+              fontFamily: "Myriad Pro, sans-serif",
+              fontSize: "21.7px",
+            }}
+          >
+            Password
+          </Typography>
+          <Input
+            value={credentials.password}
+            required
             name="password"
-            className="h-[52px] border-darkyellow border text-darkyellow text-center text-[32.54px]"
-            onChange={(e) => handleChange("password", e.target.value)}
+            type="password"
+            onChange={handleEditEvent}
+            sx={{
+              fontFamily: "Myriad Pro, sans-serif",
+              fontSize: "32.54px",
+              color: "#c56600",
+            }}
           />
-        </div>
-      </div>
-      <div className="mx-3">
+        </Box>
         <Button
           variant="contained"
+          type="submit"
           sx={{
             backgroundColor: "#279a45",
             border: "#055424 solid 3px",
@@ -105,11 +167,10 @@ export const LoginPage: React.FC = () => {
             "&:focus": { backgroundColor: "#279a45" },
             "&:active": { backgroundColor: "#055424" },
           }}
-          onClick={() => onSubmit()}
         >
           Login
         </Button>
-      </div>
+      </Box>
       <FingerprintLoad
         setFingerprint={(fingerprint) => handleFingerprint(fingerprint)}
         className="w-20 mx-auto mt-10 mb-4"
