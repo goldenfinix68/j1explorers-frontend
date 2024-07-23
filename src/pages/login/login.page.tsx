@@ -10,14 +10,7 @@ import {
 import { useAuth } from "../../containers/auth.provider/auth.provider";
 import { FingerprintLoad } from "../../components/fingerprint.load";
 import { notifyError, notifyWarning } from "../../utils/notify";
-import {
-  Box,
-  Button,
-  Container,
-  Input,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Container, Input, Typography } from "@mui/material";
 
 export const LoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -29,7 +22,7 @@ export const LoginPage: React.FC = () => {
     password: "",
   });
 
-  const [login, { isLoading, data, error }] = useLoginMutation();
+  const [login] = useLoginMutation();
   const [loginByFingerprint] = useLoginByFingerprintMutation();
 
   const handleEditEvent = (
