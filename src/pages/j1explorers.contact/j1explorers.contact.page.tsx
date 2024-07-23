@@ -29,7 +29,7 @@ export const J1ExplorersContactPage: React.FC = () => {
     <>
       <HeaderComponent>
         <Link to="/contact" onClick={() => handleDirection(-1)}>
-          <img src={`${process.env.PUBLIC_URL}/assets/images/left_green.png`} />
+          <img src="/assets/images/left_green.png" />
         </Link>
         <div
           className={`flex flex-col text-primary text-[29px] text-center font-bold leading-[24.16px]`}
