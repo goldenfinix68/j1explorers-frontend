@@ -57,7 +57,7 @@ const ProfileEditPage: React.FC = () => {
     <>
       <HeaderComponent>
         <Link to="/profile" onClick={() => handleDirection(-1)}>
-          <img src={`${process.env.PUBLIC_URL}/assets/images/left_green.png`} />
+          <img src="/assets/images/left_green.png" />
         </Link>
         <div className="flex flex-col text-secondary text-[29px] font-bold text-center leading-[24.16px]">
           <span>Profile/</span>
@@ -77,7 +77,7 @@ const ProfileEditPage: React.FC = () => {
                 label_style="text-secondary"
                 input_style="text-darkyellow"
                 className="flex leading-tight w-full"
-                icon={`${process.env.PUBLIC_URL}/assets/images/pencil.png`}
+                icon="/assets/images/pencil.png"
                 onInput={(val) => handleProfile(key, val)}
               />
             ) : (
@@ -88,7 +88,7 @@ const ProfileEditPage: React.FC = () => {
                 label_style="text-secondary"
                 input_style="text-darkyellow"
                 className="flex leading-tight w-full"
-                icon={`${process.env.PUBLIC_URL}/assets/images/pencil.png`}
+                icon="/assets/images/pencil.png"
                 onInput={(val) => handleProfile(key, val)}
               />
             )
@@ -106,7 +106,7 @@ const ProfileEditPage: React.FC = () => {
               description={description}
               label_style="text-secondary"
               input_style="text-darkyellow"
-              icon={`${process.env.PUBLIC_URL}/assets/images/pencil.png`}
+              icon="/assets/images/pencil.png"
               onInput={(val) => handleProfile(title, val)}
             />
           ))}
