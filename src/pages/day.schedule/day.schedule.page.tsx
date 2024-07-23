@@ -44,22 +44,14 @@ export const DaySchedulePage: React.FC = () => {
     <>
       <HeaderComponent>
         <Link to="/schedule" onClick={() => handleDirection(-1)}>
-          <img
-            src={`${process.env.PUBLIC_URL}/assets/images/left_yellow.png`}
-          />
+          <img src="/assets/images/left_yellow.png" />
         </Link>
         <div className="text-[24.08px] font-bold text-center leading-none">
           <div className="flex items-center">
             <span className="text-primary">LA</span>
-            <img
-              src={`${process.env.PUBLIC_URL}/assets/images/arrow_green.png`}
-              className="w-fit h-fit"
-            />
+            <img src="/assets/images/arrow_green.png" className="w-fit h-fit" />
             <span className="text-darkyellow">Vegas</span>
-            <img
-              src={`${process.env.PUBLIC_URL}/assets/images/arrow_yellow.png`}
-              className="w-fit h-fit"
-            />
+            <img src="/assets/images/arrow_yellow.pn" className="w-fit h-fit" />
             <span className="text-secondary">NYC</span>
           </div>
           <div className={TITLE_COLORS[schedules[Number(day_index)].location]}>
