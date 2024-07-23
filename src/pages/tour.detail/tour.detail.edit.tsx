@@ -23,7 +23,7 @@ export const TourDetailEditPage: React.FC = () => {
     <div className="mx-3 text-[16.2px] font-bold mb-8">
       <HeaderComponent>
         <Link to="/tour-detail" onClick={() => handleDirection(-1)}>
-          <img src={`${process.env.PUBLIC_URL}/assets/images/left_green.png`} />
+          <img src="/assets/images/left_green.png" />
         </Link>
         <div className="flex flex-col text-secondary text-[29px] text-center leading-[24.16px]">
           <span>Contact</span>

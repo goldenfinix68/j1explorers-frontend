@@ -23,12 +23,7 @@ export const FingerprintLoad: React.FC<FingerprintLoadProps> = ({
     loadFingerprint();
   }, []);
 
-  return (
-    <img
-      src={`${process.env.PUBLIC_URL}/assets/images/fingerprint.png`}
-      className={className}
-    />
-  );
+  return <img src="/assets/images/fingerprint.png" className={className} />;
 };
 
 export default FingerprintLoad;

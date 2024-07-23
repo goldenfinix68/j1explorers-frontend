@@ -39,9 +39,7 @@ export const ScheduleDetailPage: React.FC = () => {
     <>
       <HeaderComponent>
         <Link to={`/schedule/${day_index}`} onClick={() => handleDirection(-1)}>
-          <img
-            src={`${process.env.PUBLIC_URL}/assets/images/left_yellow.png`}
-          />
+          <img src="/assets/images/left_yellow.png" />
         </Link>
         <div className="text-[24.08px] font-bold text-center leading-none">
           <div className={TITLE_COLORS[daySchedule.location]}>
@@ -70,7 +68,7 @@ export const ScheduleDetailPage: React.FC = () => {
         </div>
         {schedule?.image && (
           <img
-            src={`${process.env.PUBLIC_URL}/${schedule?.image}`}
+            src={schedule?.image}
             className="border-[3px] border-primary p-8 mt-16 mx-auto"
           />
         )}

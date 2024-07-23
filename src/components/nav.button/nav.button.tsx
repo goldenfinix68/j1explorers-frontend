@@ -14,7 +14,7 @@ export const NavButtonComponent: React.FC<NavButtonProps> = ({
       className={`w-full flex justify-between items-center ${className} text-white border-[3px] rounded-xl pl-[11px] pr-2`}
     >
       {type ? <span>{title}</span> : titleComponent}
-      <img src={`${process.env.PUBLIC_URL}/assets/images/right.png`} />
+      <img src="/assets/images/right.png" />
     </button>
   );
 };

@@ -34,10 +34,7 @@ export const HomePage: React.FC = () => {
   return (
     <>
       <HeaderComponent>
-        <img
-          src={`${process.env.PUBLIC_URL}/assets/images/logo.png`}
-          className="logo"
-        />
+        <img src="/assets/images/logo.png" className="logo" />
       </HeaderComponent>
       <nav className="flex flex-col mx-2 mt-[10px] font-light">
         {menu.map(({ path, title }) => (

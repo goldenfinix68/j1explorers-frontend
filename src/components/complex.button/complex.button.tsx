@@ -33,7 +33,7 @@ export const ComplexButtonComponent: React.FC<ComplexButtonProps> = ({
         className={`${right_className} flex justify-between items-center grow pl-[11px] pr-2 border-[3px] border-l-0 rounded-r-xl`}
       >
         <span>{right_title}</span>
-        <img src={`${process.env.PUBLIC_URL}/assets/images/right.png`} />
+        <img src="/assets/images/right.png" />
       </div>
     </div>
   );

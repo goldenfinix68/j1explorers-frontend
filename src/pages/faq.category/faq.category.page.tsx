@@ -32,7 +32,7 @@ export const FAQCategoryPage: React.FC = () => {
     <>
       <HeaderComponent>
         <Link to="/faq" onClick={() => handleDirection(-1)}>
-          <img src={`${process.env.PUBLIC_URL}/assets/images/left_green.png`} />
+          <img src="/assets/images/left_green.png" />
         </Link>
         <div className="flex flex-col text-secondary text-[29px] text-center font-bold leading-[24.16px]">
           <span>FAQs</span>
