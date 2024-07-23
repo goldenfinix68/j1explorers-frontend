@@ -51,7 +51,10 @@ export const DaySchedulePage: React.FC = () => {
             <span className="text-primary">LA</span>
             <img src="/assets/images/arrow_green.png" className="w-fit h-fit" />
             <span className="text-darkyellow">Vegas</span>
-            <img src="/assets/images/arrow_yellow.pn" className="w-fit h-fit" />
+            <img
+              src="/assets/images/arrow_yellow.png"
+              className="w-fit h-fit"
+            />
             <span className="text-secondary">NYC</span>
           </div>
           <div className={TITLE_COLORS[schedules[Number(day_index)].location]}>
