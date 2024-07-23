@@ -8,25 +8,9 @@ import React, {
 import { useFetchMeQuery } from "../../service/userService";
 import { LoginResponse, UserResponse } from "../../type";
 import Cookies from "js-cookie";
+import { AuthContext } from "./auth.context";
 
-interface AuthContextType {
-  user: UserResponse | null;
-  login: (data: LoginResponse) => void;
-  updateUser: (data: UserResponse) => void;
-  logout: () => void;
-}
-
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
-
-export const useAuth = (): AuthContextType => {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error("useAuth must be used within an AuthProvider");
-  }
-  return context;
-};
-
-interface AuthProviderProps {
+export interface AuthProviderProps {
   children: ReactNode;
 }
 
