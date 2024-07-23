@@ -18,7 +18,7 @@ export const J1EPage: React.FC = () => {
     <>
       <HeaderComponent isVisible={false}>
         <Link to="/" onClick={() => handleDirection(-1)}>
-          <img src={`${process.env.PUBLIC_URL}/assets/images/left_green.png`} />
+          <img src="/assets/images/left_green.png" />
         </Link>
         <div className="flex flex-col text-secondary text-[29px] text-center font-bold leading-[24.16px]">
           <span>Website/Flyer</span>
@@ -26,17 +26,14 @@ export const J1EPage: React.FC = () => {
       </HeaderComponent>
       <div className="flex flex-col mx-2 mt-[10px] font-light">
         <DividerComponent className="border-darkgreen mb-14" />
-        <img
-          src={`${process.env.PUBLIC_URL}/assets/images/logo.png`}
-          className="mx-7"
-        />
+        <img src="/assets/images/logo.png" className="mx-7" />
         <NavButtonComponent
           onClick={() => {}}
           title="Visit Website"
           className="bg-secondary border-darkyellow text-[29px] mt-5 py-[11px]"
         />
         <img
-          src={`${process.env.PUBLIC_URL}/assets/images/flyer.png`}
+          src="/assets/images/flyer.png"
           className="w-fit mx-auto border-[3px] border-darkgreen mt-[70px]"
         />
         <NavButtonComponent

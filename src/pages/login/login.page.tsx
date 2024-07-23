@@ -64,10 +64,7 @@ export const LoginPage: React.FC = () => {
 
   return (
     <div className="w-full">
-      <img
-        src={`${process.env.PUBLIC_URL}/assets/images/logo.png`}
-        className="mx-auto mt-9 mb-20 w-3/4"
-      />
+      <img src="/assets/images/logo.png" className="mx-auto mt-9 mb-20 w-3/4" />
       <div className="flex flex-col mx-9 text-center text-secondary">
         <div className="flex flex-col w-full mb-10">
           <label className="text-[21.7px]">Username</label>
