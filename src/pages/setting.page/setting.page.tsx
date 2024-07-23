@@ -11,7 +11,7 @@ import {
 } from "../../service/userService";
 import { useDispatch } from "react-redux";
 import { setDirection } from "../../store/direction/direction.slice";
-import { useAuth } from "../../containers/auth.provider/auth.provider";
+import { useAuth } from "../../auth/hooks";
 import { Switch } from "../../components/switch";
 import { PortalModal } from "../../containers/portal.modal";
 import { FingerprintLoadModal } from "../../containers/fingerprint.load.modal";

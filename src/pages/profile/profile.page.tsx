@@ -10,7 +10,7 @@ import { useFetchPackMembersQuery } from "../../service/tourService";
 import { Direction } from "../../type";
 import { useDispatch } from "react-redux";
 import { setDirection } from "../../store/direction/direction.slice";
-import { useAuth } from "../../containers/auth.provider/auth.provider";
+import { useAuth } from "../../auth/hooks";
 
 const ProfilePage: React.FC = () => {
   const navigate = useNavigate();

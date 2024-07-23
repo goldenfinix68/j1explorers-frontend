@@ -7,7 +7,7 @@ import {
   useLoginByFingerprintMutation,
   useLoginMutation,
 } from "../../service/userService";
-import { useAuth } from "../../containers/auth.provider/auth.provider";
+import { useAuth } from "../../auth/hooks";
 import { FingerprintLoad } from "../../components/fingerprint.load";
 import { notifyError, notifyWarning } from "../../utils/notify";
 import { Box, Button, Container, Input, Typography } from "@mui/material";

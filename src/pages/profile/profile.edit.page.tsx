@@ -12,7 +12,7 @@ import { profileKeyMap } from "./keyMap";
 import { processString } from "../../utils/processString";
 import { useDispatch } from "react-redux";
 import { setDirection } from "../../store/direction/direction.slice";
-import { useAuth } from "../../containers/auth.provider/auth.provider";
+import { useAuth } from "../../auth/hooks";
 
 const ProfileEditPage: React.FC = () => {
   const dispatch = useDispatch();

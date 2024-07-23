@@ -1,6 +1,6 @@
 import React from "react";
 import { Direction } from "../../type";
-import { AuthGuard } from "../auth.guard";
+import { AuthGuard } from "../../auth/guard";
 import PageTransition from "../page.transition";
 
 interface PageWrapperProps {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./header.component.css";
 import { HeaderComponentProps } from "./type";
-import { useAuth } from "../../containers/auth.provider/auth.provider";
+import { useAuth } from "../../auth/hooks";
 import { useFetchTourQuery } from "../../service/tourService";
 import { Location } from "../../type";
 import { CITIES } from "../../consts";
