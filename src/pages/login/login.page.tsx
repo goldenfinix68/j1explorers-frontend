@@ -14,6 +14,7 @@ import { notifyError, notifyWarning } from "../../utils/notify";
 
 export const LoginPage: React.FC = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { login: setUser } = useAuth();
 
   const [fingerprint, setFingerprint] = useState<string>("");
@@ -30,12 +31,21 @@ export const LoginPage: React.FC = () => {
     setCredentials({ ...credentials, [name]: value });
   };
 
+  const handleDirection = (direction: Direction) => {
+    dispatch(setDirection(direction));
+  };
+
+  const handleNavigation = (link: string) => {
+    handleDirection(1);
+    navigate(link);
+  };
+
   const handleFingerprint = async (fingerprint: string) => {
     try {
       const data = await loginByFingerprint({ fingerprint }).unwrap();
 
       setUser(data);
-      navigate("/");
+      handleNavigation("/");
     } catch (err) {
       notifyWarning("Can't find fingerprint!");
     }
