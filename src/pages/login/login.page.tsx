@@ -11,13 +11,12 @@ import {
 import { useAuth } from "../../containers/auth.provider/auth.provider";
 import { FingerprintLoad } from "../../components/fingerprint.load";
 import { notifyError, notifyWarning } from "../../utils/notify";
+import { Button, Container } from "@mui/material";
 
 export const LoginPage: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { login: setUser } = useAuth();
-
-  const [fingerprint, setFingerprint] = useState<string>("");
 
   const [credentials, setCredentials] = useState<Credentials>({
     username: "",
@@ -63,7 +62,7 @@ export const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="w-full">
+    <Container maxWidth="sm">
       <img
         src={`${process.env.PUBLIC_URL}/assets/images/logo.png`}
         className="mx-auto mt-9 mb-20 w-3/4"
@@ -89,17 +88,32 @@ export const LoginPage: React.FC = () => {
         </div>
       </div>
       <div className="mx-3">
-        <button
-          className="bg-primary border-[3px] border-darkgreen rounded-2xl w-full text-[33.33px] text-white py-[14px] mt-6"
+        <Button
+          variant="contained"
+          sx={{
+            backgroundColor: "#279a45",
+            border: "#055424 solid 3px",
+            borderRadius: "1rem",
+            fontSize: "33.33px",
+            fontWeight: 400,
+            fontFamily: "Myriad Pro, sans-serif",
+            padding: "12px 0 12px 0",
+            marginTop: "24px",
+            width: "100%",
+            color: "white",
+            "&:hover": { backgroundColor: "#055424" },
+            "&:focus": { backgroundColor: "#279a45" },
+            "&:active": { backgroundColor: "#055424" },
+          }}
           onClick={() => onSubmit()}
         >
           Login
-        </button>
+        </Button>
       </div>
       <FingerprintLoad
         setFingerprint={(fingerprint) => handleFingerprint(fingerprint)}
         className="w-20 mx-auto mt-10 mb-4"
       />
-    </div>
+    </Container>
   );
 };
