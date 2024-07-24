@@ -29,6 +29,7 @@ import LogoutPage from "./pages/logout";
 import J1ExplorersContactPage from "./pages/j1explorers.contact";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { GuestGuard } from "./auth/guard";
 
 const App: React.FC = () => {
   const location = useLocation();
@@ -38,7 +39,14 @@ const App: React.FC = () => {
     <div>
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
-          <Route path="/login" element={<LoginPage />} />
+          <Route
+            path="/login"
+            element={
+              <GuestGuard>
+                <LoginPage />
+              </GuestGuard>
+            }
+          />
           <Route
             path="/"
             element={
