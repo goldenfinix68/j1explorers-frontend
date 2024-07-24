@@ -45,7 +45,6 @@ export const LoginPage: React.FC = () => {
       const data = await loginByFingerprint({ fingerprint }).unwrap();
 
       fetchMe(data.token);
-      handleNavigation("/");
     } catch (err) {
       notifyWarning("Can't find fingerprint!");
     }
@@ -58,7 +57,6 @@ export const LoginPage: React.FC = () => {
       const data = await login(credentials).unwrap();
 
       fetchMe(data.token);
-      handleNavigation("/");
     } catch (err) {
       notifyError("Username or Password is wrong!");
     }
