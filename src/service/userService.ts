@@ -41,7 +41,7 @@ export const userApi = createApi({
     isAllowedBiometrics: builder.query<APIResult, void>({
       query: () => `/me/fingerprint`,
     }),
-    updateProfile: builder.mutation<UserResponse, UserDetail>({
+    updateProfile: builder.mutation<APIResult, UserDetail>({
       query: (profile) => ({
         url: `/me/update`,
         method: `PUT`,
