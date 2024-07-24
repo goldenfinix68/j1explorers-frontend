@@ -1,9 +1,9 @@
-import { ReactNode } from "react";
-import { LoginResponse, UserResponse } from "../type";
+import { UserResponse } from "../type";
 
 export interface AuthContextType {
+  isAuthenticated: boolean;
+  loading: boolean;
   user: UserResponse | null;
-  login: (data: LoginResponse) => void;
-  updateUser: (data: UserResponse) => void;
+  fetchMe: (newToken?: string) => void;
   logout: () => void;
 }
