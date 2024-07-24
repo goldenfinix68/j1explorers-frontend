@@ -16,7 +16,7 @@ import { useAuth } from "../../auth/hooks";
 
 const ProfileEditPage: React.FC = () => {
   const dispatch = useDispatch();
-  const { user, updateUser } = useAuth();
+  const { user, fetchMe } = useAuth();
   const [updateProfile, { isLoading: isUpdating }] = useUpdateProfileMutation();
 
   const handleDirection = (direction: Direction) => {
@@ -45,9 +45,9 @@ const ProfileEditPage: React.FC = () => {
 
   const handleSubmit = async () => {
     try {
-      const user = await updateProfile(profile).unwrap();
+      await updateProfile(profile).unwrap();
 
-      updateUser(user);
+      fetchMe();
     } catch (err) {
       console.log(err);
     }

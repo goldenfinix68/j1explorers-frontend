@@ -20,7 +20,7 @@ const ProfilePage: React.FC = () => {
   const { data: packMembers } = useFetchPackMembersQuery();
 
   if (!user) {
-    return <Navigate to="login" />;
+    return <Navigate to="/login" />;
   }
 
   const handleDirection = (direction: Direction) => {

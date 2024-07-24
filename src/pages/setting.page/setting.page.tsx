@@ -19,7 +19,7 @@ import { notifyError, notifySuccess, notifyWarning } from "../../utils/notify";
 
 const SettingsPage: React.FC = () => {
   const dispatch = useDispatch();
-  const { user, updateUser } = useAuth();
+  const { user, fetchMe } = useAuth();
 
   const { data: isAllowedBiometrics } = useIsAllowedBiometricsQuery();
 
@@ -66,9 +66,9 @@ const SettingsPage: React.FC = () => {
 
   const handleSubmit = async () => {
     try {
-      const user = await updateProfile({ username }).unwrap();
+      await updateProfile({ username }).unwrap();
 
-      updateUser(user);
+      fetchMe();
       notifySuccess("Username was successfully updated!");
       setOnEditUserName(false);
     } catch (err) {

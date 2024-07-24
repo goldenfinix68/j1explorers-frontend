@@ -15,7 +15,7 @@ import { Box, Button, Container, Input, Typography } from "@mui/material";
 export const LoginPage: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { login: setUser } = useAuth();
+  const { fetchMe } = useAuth();
 
   const [credentials, setCredentials] = useState<Credentials>({
     username: "",
@@ -44,7 +44,7 @@ export const LoginPage: React.FC = () => {
     try {
       const data = await loginByFingerprint({ fingerprint }).unwrap();
 
-      setUser(data);
+      fetchMe(data.token);
       handleNavigation("/");
     } catch (err) {
       notifyWarning("Can't find fingerprint!");
@@ -57,7 +57,7 @@ export const LoginPage: React.FC = () => {
 
       const data = await login(credentials).unwrap();
 
-      setUser(data);
+      fetchMe(data.token);
       handleNavigation("/");
     } catch (err) {
       notifyError("Username or Password is wrong!");
