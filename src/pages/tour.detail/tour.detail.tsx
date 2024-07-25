@@ -19,6 +19,7 @@ import {
 } from "./processTourResponse";
 import { useDispatch } from "react-redux";
 import { setDirection } from "../../store/direction/direction.slice";
+import { LoadingScreen } from "../../components/loading-screen";
 
 export const TourDetailPage: React.FC = () => {
   const navigate = useNavigate();
@@ -35,14 +36,12 @@ export const TourDetailPage: React.FC = () => {
     navigate(link);
   };
 
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
+
   if (!data) {
-    if (error) {
-      return <div>Error Occured</div>;
-    }
-    if (isLoading) {
-      return <div>Is Loading...</div>;
-    }
-    return <></>;
+    return <div>Error occured</div>;
   }
 
   const bookingDetails: RecordDetail[] = [

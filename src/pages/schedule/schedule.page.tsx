@@ -8,10 +8,13 @@ import { BUTTON_COLORS } from "../../consts";
 import { useDispatch } from "react-redux";
 import { setDirection } from "../../store/direction/direction.slice";
 import { Direction } from "../../type";
+import { useFetchTourQuery } from "../../service/tourService";
 
 export const SchedulePage: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const { data: tour, isLoading: loadingTour, error } = useFetchTourQuery();
 
   const handleDirection = (direction: Direction) => {
     dispatch(setDirection(direction));

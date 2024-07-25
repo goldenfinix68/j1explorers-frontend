@@ -10,6 +10,7 @@ import { getSecondOfPair } from "../../utils/common";
 import { useDispatch } from "react-redux";
 import { setDirection } from "../../store/direction/direction.slice";
 import { useFetchScheduleQuery } from "../../service/scheduleService";
+import { LoadingScreen } from "../../components/loading-screen";
 
 export const ScheduleDetailPage: React.FC = () => {
   const dispatch = useDispatch();
@@ -31,6 +32,10 @@ export const ScheduleDetailPage: React.FC = () => {
 
   if (!schedule) {
     return <div>Invalid Page</div>;
+  }
+
+  if (isLoading) {
+    return <LoadingScreen />;
   }
 
   const daySchedule = schedules[Number(day_index)];
