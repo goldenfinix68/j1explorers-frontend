@@ -8,6 +8,7 @@ import { useFetchCategoryByIdQuery } from "../../service/categoryService";
 import { Direction } from "../../type";
 import { useDispatch } from "react-redux";
 import { setDirection } from "../../store/direction/direction.slice";
+import { LoadingScreen } from "../../components/loading-screen";
 
 export const FAQCategoryPage: React.FC = () => {
   const navigate = useNavigate();
@@ -26,7 +27,8 @@ export const FAQCategoryPage: React.FC = () => {
   const { data, error, isLoading } = useFetchFaqsByCategoryQuery(
     Number(category)
   );
-  const { data: categoryData } = useFetchCategoryByIdQuery(Number(category));
+  const { data: categoryData, isLoading: loadingCategoryData } =
+    useFetchCategoryByIdQuery(Number(category));
 
   return (
     <>
@@ -39,19 +41,23 @@ export const FAQCategoryPage: React.FC = () => {
           <span>{categoryData?.title}</span>
         </div>
       </HeaderComponent>
-      <nav className="flex flex-col mx-2 mt-[10px] font-light">
-        {data?.faqs.map(({ id, question }) => (
-          <NavButtonComponent
-            type={false}
-            key={id}
-            onClick={() => handleNavigation(id.toString())}
-            titleComponent={
-              <div className="mr-[6px] text-left">{question}</div>
-            }
-            className="bg-secondary border-darkyellow text-[19.291px] py-[11px] mb-1 leading-none font-light"
-          />
-        ))}
-      </nav>
+      {isLoading ? (
+        <LoadingScreen />
+      ) : (
+        <nav className="flex flex-col mx-2 mt-[10px] font-light">
+          {data?.faqs.map(({ id, question }) => (
+            <NavButtonComponent
+              type={false}
+              key={id}
+              onClick={() => handleNavigation(id.toString())}
+              titleComponent={
+                <div className="mr-[6px] text-left">{question}</div>
+              }
+              className="bg-secondary border-darkyellow text-[19.291px] py-[11px] mb-1 leading-none font-light"
+            />
+          ))}
+        </nav>
+      )}
     </>
   );
 };

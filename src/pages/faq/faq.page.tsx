@@ -6,6 +6,7 @@ import { useFetchCategoriesQuery } from "../../service/categoryService";
 import { useDispatch } from "react-redux";
 import { setDirection } from "../../store/direction/direction.slice";
 import { Direction } from "../../type";
+import { LoadingScreen } from "../../components/loading-screen";
 
 export const FAQPage: React.FC = () => {
   const navigate = useNavigate();
@@ -20,6 +21,10 @@ export const FAQPage: React.FC = () => {
     handleDirection(1);
     navigate(link);
   };
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
 
   return (
     <>

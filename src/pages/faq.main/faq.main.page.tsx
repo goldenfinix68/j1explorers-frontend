@@ -9,7 +9,6 @@ import { Direction } from "../../type";
 
 export const FAQMainPage: React.FC = () => {
   const navigate = useNavigate();
-  const { data, error, isLoading } = useFetchCategoriesQuery();
   const dispatch = useDispatch();
 
   const handleDirection = (direction: Direction) => {
