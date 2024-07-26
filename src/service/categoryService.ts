@@ -8,7 +8,8 @@ export const categoryApi = createApi({
     baseUrl: api_url.category.root,
     prepareHeaders: (headers) => {
       const token = localStorage.token;
-      if (token) headers.set("Authorization", token);
+      if (token) headers.set("Authorization", `Bearer ${token}`);
+      else localStorage.setItem("token", "");
     },
   }),
   endpoints: (builder) => ({
