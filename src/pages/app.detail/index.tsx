@@ -1,3 +1,1 @@
-import { AppDetailPage } from "./app.detail.page";
-
-export default AppDetailPage;
+export { AppDetailPage } from "./app.detail.page";

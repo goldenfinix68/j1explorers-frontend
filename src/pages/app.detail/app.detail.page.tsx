@@ -1,11 +1,11 @@
 import React from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { NavButtonComponent } from "../../components/nav.button/nav.button";
-import HeaderComponent from "../../components/header";
+import { HeaderComponent } from "../../components/header";
 import { AppDetailParams, Direction } from "../../type";
 import { isValidApps } from "../../utils/validator";
 import { APP_TYPES } from "../../consts";
-import DividerComponent from "../../components/divider";
+import { DividerComponent } from "../../components/divider";
 import { useDispatch } from "react-redux";
 import { setDirection } from "../../store/direction/direction.slice";
 
