@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import HeaderComponent from "../../components/header";
-import DividerComponent from "../../components/divider";
+import { HeaderComponent } from "../../components/header";
+import { DividerComponent } from "../../components/divider";
 import { useDispatch } from "react-redux";
 import { Direction } from "../../type";
 import { setDirection } from "../../store/direction/direction.slice";
