@@ -1,11 +1,11 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Direction } from "../../type";
-import DividerComponent from "../../components/divider";
-import HeaderComponent from "../../components/header";
+import { DividerComponent } from "../../components/divider";
+import { HeaderComponent } from "../../components/header";
 import { useDispatch } from "react-redux";
 import { setDirection } from "../../store/direction/direction.slice";
-import NavButtonComponent from "../../components/nav.button";
+import { NavButtonComponent } from "../../components/nav.button";
 
 export const TourDetailEditPage: React.FC = () => {
   const navigate = useNavigate();

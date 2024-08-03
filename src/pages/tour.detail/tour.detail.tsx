@@ -2,8 +2,8 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Direction, RecordDetail } from "../../type";
 import { RecordComponent } from "../../components/record.component";
-import DividerComponent from "../../components/divider";
-import HeaderComponent from "../../components/header";
+import { DividerComponent } from "../../components/divider";
+import { HeaderComponent } from "../../components/header";
 import { useFetchTourQuery } from "../../service/tourService";
 import {
   getBookDate,
