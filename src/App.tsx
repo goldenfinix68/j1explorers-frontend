@@ -26,7 +26,7 @@ import { LoginPage } from "./pages/login";
 import { FAQMainPage } from "./pages/faq.main";
 import { SettingsPage } from "./pages/setting.page";
 import { LogoutPage } from "./pages/logout";
-import J1ExplorersContactPage from "./pages/j1explorers.contact";
+import { J1ExplorersContactPage } from "./pages/j1explorers.contact";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { GuestGuard } from "./auth/guard";
