@@ -4,8 +4,8 @@ import {
   DateRecordComponent,
 } from "../../components/record.component";
 import { Direction, RecordDetail, UserDetail } from "../../type";
-import DividerComponent from "../../components/divider";
-import HeaderComponent from "../../components/header";
+import { DividerComponent } from "../../components/divider";
+import { HeaderComponent } from "../../components/header";
 import { Link } from "react-router-dom";
 import { useUpdateProfileMutation } from "../../service/userService";
 import { profileKeyMap } from "./keyMap";

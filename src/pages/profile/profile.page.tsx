@@ -1,7 +1,7 @@
 import React from "react";
 import { RecordComponent } from "../../components/record.component";
-import DividerComponent from "../../components/divider";
-import HeaderComponent from "../../components/header";
+import { DividerComponent } from "../../components/divider";
+import { HeaderComponent } from "../../components/header";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { packMembersKeyMap, profileKeyMap } from "./keyMap";
 import { formatDate } from "../../utils/processDate";
