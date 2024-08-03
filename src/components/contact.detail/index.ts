@@ -1,3 +1,1 @@
-import { ContactDetailComponent } from "./contact.detail.component";
-
-export default ContactDetailComponent;
+export { ContactDetailComponent } from "./contact.detail.component";
