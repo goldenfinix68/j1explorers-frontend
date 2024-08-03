@@ -1,3 +1,1 @@
-import { LogoutPage } from "./logout.page";
-
-export default LogoutPage;
+export { LogoutPage } from "./logout.page";
