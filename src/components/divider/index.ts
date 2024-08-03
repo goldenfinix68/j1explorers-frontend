@@ -1,3 +1,1 @@
-import { DividerComponent } from "./divider.component";
-
-export default DividerComponent;
+export { DividerComponent } from "./divider.component";
