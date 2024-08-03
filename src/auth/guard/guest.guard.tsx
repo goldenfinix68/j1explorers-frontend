@@ -1,11 +1,5 @@
 import React, { ReactNode, useCallback, useEffect } from "react";
-import {
-  Route,
-  Navigate,
-  useNavigate,
-  useParams,
-  useSearchParams,
-} from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "../hooks";
 import { SplashScreen } from "../../components/loading-screen";
 
