@@ -1,3 +1,1 @@
-import { FAQIncludedPage } from "./faq.included.page";
-
-export default FAQIncludedPage;
+export { FAQIncludedPage } from "./faq.included.page";

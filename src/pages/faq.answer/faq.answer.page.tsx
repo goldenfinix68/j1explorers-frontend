@@ -1,6 +1,6 @@
 import React from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import HeaderComponent from "../../components/header";
+import { Link, useParams } from "react-router-dom";
+import { HeaderComponent } from "../../components/header";
 import { FAQAnswerParams } from "./type";
 import { useFetchFaqByIdQuery } from "../../service/faqService";
 import { useFetchCategoryByIdQuery } from "../../service/categoryService";

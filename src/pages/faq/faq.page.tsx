@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { NavButtonComponent } from "../../components/nav.button/nav.button";
-import HeaderComponent from "../../components/header";
+import { HeaderComponent } from "../../components/header";
 import { useFetchCategoriesQuery } from "../../service/categoryService";
 import { useDispatch } from "react-redux";
 import { setDirection } from "../../store/direction/direction.slice";

@@ -1,3 +1,1 @@
-import { FAQCategoryPage } from "./faq.category.page";
-
-export default FAQCategoryPage;
+export { FAQCategoryPage } from "./faq.category.page";

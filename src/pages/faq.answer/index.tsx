@@ -1,3 +1,1 @@
-import { FAQAnswerPage } from "./faq.answer.page";
-
-export default FAQAnswerPage;
+export { FAQAnswerPage } from "./faq.answer.page";
