@@ -136,7 +136,7 @@ export interface UserDetail extends Record<string, string | Date | undefined> {
 export type DateKey = "year" | "month" | "day";
 
 export interface TourResponse
-  extends Record<string, string | Date | number | Boolean | UserEssential> {
+  extends Record<string, string | Date | number | Boolean> {
   id: number;
   book: Date;
   main_tour_price: number;
