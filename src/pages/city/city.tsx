@@ -1,7 +1,7 @@
 import React from "react";
-import { Link, useNavigate, useMatch, useParams } from "react-router-dom";
-import NavButtonComponent from "../../components/nav.button";
-import HeaderComponent from "../../components/header";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { NavButtonComponent } from "../../components/nav.button";
+import { HeaderComponent } from "../../components/header";
 import {
   CITIES,
   BUTTON_COLORS,

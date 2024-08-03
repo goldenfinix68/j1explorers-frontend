@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import NavButtonComponent from "../../components/nav.button";
-import HeaderComponent from "../../components/header";
+import { NavButtonComponent } from "../../components/nav.button";
+import { HeaderComponent } from "../../components/header";
 import { CITIES, BUTTON_COLORS } from "../../consts";
 import { Location, Direction } from "../../type";
 import { useDispatch } from "react-redux";

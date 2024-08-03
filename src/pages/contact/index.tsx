@@ -1,2 +1,1 @@
-import { ContactPage } from "./contact.page";
-export default ContactPage;
+export { ContactPage } from "./contact.page";

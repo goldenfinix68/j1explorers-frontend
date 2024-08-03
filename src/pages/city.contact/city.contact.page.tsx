@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { CityContactParams, CityParams, Direction } from "../../type";
 import { isValidCity, isValidContact } from "../../utils/validator";
-import HeaderComponent from "../../components/header";
+import { HeaderComponent } from "../../components/header";
 import {
   BUTTON_COLORS,
   CITIES,
@@ -11,9 +11,9 @@ import {
   DIVIDER_COLORS,
   TITLE_COLORS,
 } from "../../consts";
-import DividerComponent from "../../components/divider";
-import NavButtonComponent from "../../components/nav.button";
-import ContactDetailComponent from "../../components/contact.detail";
+import { DividerComponent } from "../../components/divider";
+import { NavButtonComponent } from "../../components/nav.button";
+import { ContactDetailComponent } from "../../components/contact.detail";
 import { useDispatch } from "react-redux";
 import { setDirection } from "../../store/direction/direction.slice";
 
