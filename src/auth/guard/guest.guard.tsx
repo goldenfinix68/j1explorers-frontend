@@ -1,5 +1,11 @@
 import React, { ReactNode, useCallback, useEffect } from "react";
-import { Route, Navigate, useNavigate, useParams } from "react-router-dom";
+import {
+  Route,
+  Navigate,
+  useNavigate,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
 import { useAuth } from "../hooks";
 import { SplashScreen } from "../../components/loading-screen";
 
@@ -18,7 +24,9 @@ export const GuestGuard: React.FC<GuestGuardProps> = ({ children }) => {
 function Container({ children }: GuestGuardProps) {
   const navigate = useNavigate();
 
-  const { returnTo = "/" } = useParams<{ returnTo: string }>();
+  const [searchParams] = useSearchParams();
+
+  const returnTo = searchParams.get("returnTo") ?? "/";
 
   const { isAuthenticated } = useAuth();
 
@@ -26,7 +34,7 @@ function Container({ children }: GuestGuardProps) {
     if (isAuthenticated) {
       navigate(returnTo, { replace: true });
     }
-  }, [isAuthenticated, returnTo, navigate]);
+  }, [isAuthenticated, searchParams, navigate]);
 
   useEffect(() => {
     check();
