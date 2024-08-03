@@ -1,3 +1,1 @@
-import { SpanGroup } from "./span.group";
-
-export default SpanGroup;
+export { SpanGroup } from "./span.group";

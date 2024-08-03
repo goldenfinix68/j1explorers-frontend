@@ -1,5 +1,6 @@
 import React from "react";
-import { formatDate, formatDateToYYYYMMDD } from "../../utils/processDate";
+import { formatDateToYYYYMMDD } from "../../utils/processDate";
+
 interface DateRecordComponentProps {
   label: string;
   description: any;
@@ -10,6 +11,7 @@ interface DateRecordComponentProps {
   icon: string;
   onInput: (val: string) => void;
 }
+
 export const DateRecordComponent: React.FC<DateRecordComponentProps> = ({
   label,
   description,

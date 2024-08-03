@@ -1,4 +1,5 @@
 import React from "react";
+
 interface RecordComponentProps {
   label: string;
   description: any;
@@ -7,6 +8,7 @@ interface RecordComponentProps {
   gap?: string;
   className?: string;
 }
+
 export const RecordComponent: React.FC<RecordComponentProps> = ({
   label,
   description,

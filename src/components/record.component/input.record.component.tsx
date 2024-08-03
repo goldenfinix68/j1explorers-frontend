@@ -1,4 +1,5 @@
 import React from "react";
+
 interface InputRecordComponentProps {
   label: string;
   description: any;
@@ -9,6 +10,7 @@ interface InputRecordComponentProps {
   icon: string;
   onInput: (val: string) => void;
 }
+
 export const InputRecordComponent: React.FC<InputRecordComponentProps> = ({
   label,
   description,
