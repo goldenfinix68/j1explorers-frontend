@@ -1,3 +1,1 @@
-import { NavButtonComponent } from "./nav.button";
-
-export default NavButtonComponent;
+export { NavButtonComponent } from "./nav.button";
