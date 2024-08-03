@@ -1,5 +1,5 @@
 import React from "react";
-import DividerComponent from "../divider";
+import { DividerComponent } from "../divider";
 
 interface ComplexButtonProps {
   left_title: string[];
