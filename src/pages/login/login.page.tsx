@@ -10,9 +10,17 @@ import {
 import { useAuth } from "../../auth/hooks";
 import { FingerprintLoad } from "../../components/fingerprint.load";
 import { notifyError, notifyWarning } from "../../utils/notify";
-import { Box, Button, Container, Input, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  Input,
+  Typography,
+  useTheme,
+} from "@mui/material";
 
 export const LoginPage: React.FC = () => {
+  const theme = useTheme();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { fetchMe } = useAuth();
@@ -89,8 +97,7 @@ export const LoginPage: React.FC = () => {
         >
           <Typography
             sx={{
-              color: "#ff991f",
-              fontFamily: "Myriad Pro, sans-serif",
+              color: theme.palette.secondary.main,
               fontSize: "21.7px",
             }}
           >
@@ -102,9 +109,8 @@ export const LoginPage: React.FC = () => {
             name="username"
             onChange={handleEditEvent}
             sx={{
-              fontFamily: "Myriad Pro, sans-serif",
               fontSize: "32.54px",
-              color: "#c56600",
+              color: theme.palette.secondary.dark,
             }}
           />
         </Box>
@@ -120,8 +126,7 @@ export const LoginPage: React.FC = () => {
         >
           <Typography
             sx={{
-              color: "#ff991f",
-              fontFamily: "Myriad Pro, sans-serif",
+              color: theme.palette.secondary.main,
               fontSize: "21.7px",
             }}
           >
@@ -136,7 +141,7 @@ export const LoginPage: React.FC = () => {
             sx={{
               fontFamily: "Myriad Pro, sans-serif",
               fontSize: "32.54px",
-              color: "#c56600",
+              color: theme.palette.secondary.dark,
             }}
           />
         </Box>
@@ -144,19 +149,20 @@ export const LoginPage: React.FC = () => {
           variant="contained"
           type="submit"
           sx={{
-            backgroundColor: "#279a45",
-            border: "#055424 solid 3px",
+            backgroundColor: theme.palette.primary.main,
+            borderColor: theme.palette.primary.dark,
+            borderWidth: "3px",
+            borderStyle: "solid",
             borderRadius: "1rem",
             fontSize: "33.33px",
             fontWeight: 400,
-            fontFamily: "Myriad Pro, sans-serif",
             padding: "12px 0 12px 0",
             marginTop: "24px",
             width: "100%",
             color: "white",
-            "&:hover": { backgroundColor: "#055424" },
-            "&:focus": { backgroundColor: "#279a45" },
-            "&:active": { backgroundColor: "#055424" },
+            "&:hover": { backgroundColor: theme.palette.primary.light },
+            "&:focus": { backgroundColor: theme.palette.primary.main },
+            "&:active": { backgroundColor: theme.palette.primary.light },
           }}
         >
           Login
