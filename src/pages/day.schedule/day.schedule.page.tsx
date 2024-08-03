@@ -1,8 +1,8 @@
 import React from "react";
-import HeaderComponent from "../../components/header";
+import { HeaderComponent } from "../../components/header";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import ComplexButtonComponent from "../../components/complex.button";
-import NavButtonComponent from "../../components/nav.button";
+import { ComplexButtonComponent } from "../../components/complex.button";
+import { NavButtonComponent } from "../../components/nav.button";
 import {
   DayScheduleParams,
   Direction,
@@ -13,7 +13,6 @@ import { isValidDayScheduleIndex } from "../../utils/validator";
 import { schedules } from "../../consts/schedules_data";
 import { BUTTON_COLORS, TITLE_COLORS, cities } from "../../consts";
 import {
-  getArrayFromPair,
   getFirstOfPair,
   getSecondOfPair,
   processPairString,
@@ -21,6 +20,7 @@ import {
 import { useDispatch } from "react-redux";
 import { setDirection } from "../../store/direction/direction.slice";
 import { useFetchTourWithSchedulesQuery } from "../../service/tourService";
+
 export const DaySchedulePage: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();

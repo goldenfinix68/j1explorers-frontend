@@ -1,3 +1,1 @@
-import { DaySchedulePage } from "./day.schedule.page";
-
-export default DaySchedulePage;
+export { DaySchedulePage } from "./day.schedule.page";

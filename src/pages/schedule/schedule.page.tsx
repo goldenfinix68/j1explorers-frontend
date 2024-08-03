@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import NavButtonComponent from "../../components/nav.button";
-import HeaderComponent from "../../components/header";
+import { NavButtonComponent } from "../../components/nav.button";
+import { HeaderComponent } from "../../components/header";
 import { schedules } from "../../consts/schedules_data";
 import { isPair } from "../../utils/common";
 import { BUTTON_COLORS } from "../../consts";

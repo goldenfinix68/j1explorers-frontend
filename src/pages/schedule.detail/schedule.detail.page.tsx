@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import HeaderComponent from "../../components/header";
-import DividerComponent from "../../components/divider";
+import { HeaderComponent } from "../../components/header";
+import { DividerComponent } from "../../components/divider";
 import { CONTENT_COLORS, TITLE_COLORS, cities } from "../../consts";
 import { schedules } from "../../consts/schedules_data";
 import { ScheduleDetailParams, Direction } from "../../type";

@@ -1,2 +1,1 @@
-import { SchedulePage } from "./schedule.page";
-export default SchedulePage;
+export { SchedulePage } from "./schedule.page";
