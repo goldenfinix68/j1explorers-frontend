@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Direction } from "../../type";
-import DividerComponent from "../../components/divider";
-import HeaderComponent from "../../components/header";
+import { DividerComponent } from "../../components/divider";
+import { HeaderComponent } from "../../components/header";
 import { Link } from "react-router-dom";
 import {
   useChangePasswordMutation,
