@@ -1,17 +1,19 @@
 import React from "react";
-import { Direction } from "../../type";
 import { AuthGuard } from "../../auth/guard";
 import PageTransition from "../page.transition";
+import { useSelector } from "react-redux";
+import { directionSelector } from "../../store/direction/direction.selector";
 
 interface PageWrapperProps {
   children: React.ReactNode;
-  direction: Direction;
 }
 
-const PageWrapper: React.FC<PageWrapperProps> = ({ children, direction }) => (
-  <AuthGuard>
-    <PageTransition direction={direction}>{children}</PageTransition>
-  </AuthGuard>
-);
+export function PageWrapper({ children }: PageWrapperProps) {
+  const direction = useSelector(directionSelector);
 
-export default PageWrapper;
+  return (
+    <AuthGuard>
+      <PageTransition direction={direction}>{children}</PageTransition>
+    </AuthGuard>
+  );
+}

@@ -20,8 +20,6 @@ import { FAQPage } from "./pages/faq";
 import { FAQCategoryPage } from "./pages/faq.category";
 import { FAQIncludedPage } from "./pages/faq.included";
 import { FAQAnswerPage } from "./pages/faq.answer";
-import { directionSelector } from "./store/direction/direction.selector";
-import { useSelector } from "react-redux";
 import { LoginPage } from "./pages/login";
 import { FAQMainPage } from "./pages/faq.main";
 import { SettingsPage } from "./pages/setting.page";
@@ -33,7 +31,6 @@ import { GuestGuard } from "./auth/guard";
 
 const App: React.FC = () => {
   const location = useLocation();
-  const direction = useSelector(directionSelector);
 
   return (
     <div>
@@ -50,7 +47,7 @@ const App: React.FC = () => {
           <Route
             path="/"
             element={
-              <PageWrapper direction={direction}>
+              <PageWrapper>
                 <HomePage />
               </PageWrapper>
             }
@@ -58,7 +55,7 @@ const App: React.FC = () => {
           <Route
             path="/tour-detail"
             element={
-              <PageWrapper direction={direction}>
+              <PageWrapper>
                 <TourDetailPage />
               </PageWrapper>
             }
@@ -66,7 +63,7 @@ const App: React.FC = () => {
           <Route
             path="/tour-detail/edit"
             element={
-              <PageWrapper direction={direction}>
+              <PageWrapper>
                 <TourDetailEditPage />
               </PageWrapper>
             }
@@ -74,7 +71,7 @@ const App: React.FC = () => {
           <Route
             path="/profile"
             element={
-              <PageWrapper direction={direction}>
+              <PageWrapper>
                 <ProfilePage />
               </PageWrapper>
             }
@@ -82,7 +79,7 @@ const App: React.FC = () => {
           <Route
             path="/profile/edit"
             element={
-              <PageWrapper direction={direction}>
+              <PageWrapper>
                 <ProfileEditPage />
               </PageWrapper>
             }
@@ -90,7 +87,7 @@ const App: React.FC = () => {
           <Route
             path="/schedule"
             element={
-              <PageWrapper direction={direction}>
+              <PageWrapper>
                 <SchedulePage />
               </PageWrapper>
             }
@@ -98,7 +95,7 @@ const App: React.FC = () => {
           <Route
             path="/schedule/:day_index"
             element={
-              <PageWrapper direction={direction}>
+              <PageWrapper>
                 <DaySchedulePage />
               </PageWrapper>
             }
@@ -106,7 +103,7 @@ const App: React.FC = () => {
           <Route
             path="/schedule/:day_index/:schedule_index"
             element={
-              <PageWrapper direction={direction}>
+              <PageWrapper>
                 <ScheduleDetailPage />
               </PageWrapper>
             }
@@ -114,7 +111,7 @@ const App: React.FC = () => {
           <Route
             path="/contact"
             element={
-              <PageWrapper direction={direction}>
+              <PageWrapper>
                 <ContactPage />
               </PageWrapper>
             }
@@ -122,7 +119,7 @@ const App: React.FC = () => {
           <Route
             path="/contact/:city"
             element={
-              <PageWrapper direction={direction}>
+              <PageWrapper>
                 <CityPage />
               </PageWrapper>
             }
@@ -130,7 +127,7 @@ const App: React.FC = () => {
           <Route
             path="/contact/:city/:contact_type"
             element={
-              <PageWrapper direction={direction}>
+              <PageWrapper>
                 <CityContactPage />
               </PageWrapper>
             }
@@ -138,7 +135,7 @@ const App: React.FC = () => {
           <Route
             path="/recommend"
             element={
-              <PageWrapper direction={direction}>
+              <PageWrapper>
                 <RecommendPage />
               </PageWrapper>
             }
@@ -146,7 +143,7 @@ const App: React.FC = () => {
           <Route
             path="/j1explorers-contact"
             element={
-              <PageWrapper direction={direction}>
+              <PageWrapper>
                 <J1ExplorersContactPage />
               </PageWrapper>
             }
@@ -154,7 +151,7 @@ const App: React.FC = () => {
           <Route
             path="/j1e"
             element={
-              <PageWrapper direction={direction}>
+              <PageWrapper>
                 <J1EPage />
               </PageWrapper>
             }
@@ -162,7 +159,7 @@ const App: React.FC = () => {
           <Route
             path="/faq"
             element={
-              <PageWrapper direction={direction}>
+              <PageWrapper>
                 <FAQPage />
               </PageWrapper>
             }
@@ -170,7 +167,7 @@ const App: React.FC = () => {
           <Route
             path="/faq/main"
             element={
-              <PageWrapper direction={direction}>
+              <PageWrapper>
                 <FAQMainPage />
               </PageWrapper>
             }
@@ -178,7 +175,7 @@ const App: React.FC = () => {
           <Route
             path="/faq/main/0"
             element={
-              <PageWrapper direction={direction}>
+              <PageWrapper>
                 <FAQIncludedPage />
               </PageWrapper>
             }
@@ -186,7 +183,7 @@ const App: React.FC = () => {
           <Route
             path="/faq/:category"
             element={
-              <PageWrapper direction={direction}>
+              <PageWrapper>
                 <FAQCategoryPage />
               </PageWrapper>
             }
@@ -194,7 +191,7 @@ const App: React.FC = () => {
           <Route
             path="/faq/:category/:question"
             element={
-              <PageWrapper direction={direction}>
+              <PageWrapper>
                 <FAQAnswerPage />
               </PageWrapper>
             }
@@ -202,7 +199,7 @@ const App: React.FC = () => {
           <Route
             path="/terms"
             element={
-              <PageWrapper direction={direction}>
+              <PageWrapper>
                 <TermsPage />
               </PageWrapper>
             }
@@ -210,7 +207,7 @@ const App: React.FC = () => {
           <Route
             path="/recommend/:apps"
             element={
-              <PageWrapper direction={direction}>
+              <PageWrapper>
                 <AppDetailPage />
               </PageWrapper>
             }
@@ -218,7 +215,7 @@ const App: React.FC = () => {
           <Route
             path="/setting"
             element={
-              <PageWrapper direction={direction}>
+              <PageWrapper>
                 <SettingsPage />
               </PageWrapper>
             }
