@@ -42,6 +42,7 @@ export const SchedulePage: React.FC = () => {
             title={isPair<string>(title) ? title.first : title}
             className={`${BUTTON_COLORS[location]} text-[23.71px] mb-1 py-[11px]`}
             onClick={() => handleNavigation(index.toString())}
+            key={isPair<string>(title) ? title.first : title}
           />
         ))}
       </div>
