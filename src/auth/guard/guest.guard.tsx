@@ -3,19 +3,19 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "../hooks";
 import { SplashScreen } from "../../components/loading-screen";
 
-export interface GuestGuardProps {
+export interface Props {
   children: ReactNode;
 }
 
-export const GuestGuard: React.FC<GuestGuardProps> = ({ children }) => {
+export function GuestGuard({ children }: Props) {
   const { loading } = useAuth();
 
   return loading ? <SplashScreen /> : <Container>{children}</Container>;
-};
+}
 
 // ----------------------------------------------------------------------
 
-function Container({ children }: GuestGuardProps) {
+function Container({ children }: Props) {
   const navigate = useNavigate();
 
   const [searchParams] = useSearchParams();
