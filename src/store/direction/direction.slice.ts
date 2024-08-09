@@ -1,8 +1,8 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction, Slice } from "@reduxjs/toolkit";
 import { Direction } from "../../type";
 
 const initialState: Direction = 1;
-const directionSlice = createSlice({
+const directionSlice: Slice<Direction> = createSlice({
   name: "direction",
   initialState: initialState as Direction,
   reducers: {
